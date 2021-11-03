@@ -35,18 +35,21 @@
 
        
     </div>
-    <br>
 
    <div class="centers">
        <h2 class="text-center">AAA-Gyms</h2>
-       <p class="muchmore">We can give you much more Than Others</p>
+       <p class="muchmore">We can give you much more than others</p>
        <ul>
-           <li>3+ Gym centers</li>
-              <li>24/7 Gym Support</li>
-              <li>Personal training program</li>
-              <li>Gym Products</li>
-              <li>Informative Blogs</li>
+           <li><i class="fas fa-city large"></i><br><h3>3+ Gym centers</h3></li>
+              <li><i class="fas fa-city large"></i><br><h3>24/7 Gym Support</h3></li>
+              <li><i class="fas fa-people-arrows large"></i><br><h3>Personal training</h3></li>
+              <li><i class="fas fa-gifts large"></i><br><h3>Gym Products</h3></li>
+              <li><i class="far fa-newspaper large"></i><br><h3>Informative Blogs</h3></li>
        </ul>
+   </div>
+   <div class="ad_register">
+       <h2 class="text-center" style="color: black;">Register Now to Join AAA-Gyms</h2>
+         <a href="register.php" class="btn add">Register</a>
    </div>
     
    <?php include("components/footer.php");?>

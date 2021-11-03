@@ -35,8 +35,8 @@
                         <i class="fas fa-paper-plane"></i>Submit</button>
                 </form>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; BlogsforBlogs|All rights Reserved
+            <div class="footer-bottom">
+                &copy; BlogsforBlogs|All rights Reserved
+            </div>
         </div>
     </div>
