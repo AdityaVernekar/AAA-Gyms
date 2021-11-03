@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AAA Gyms</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
+
+<header>
         <div class="logo">
             <h1 class="logo-text"><span>AAA</span>Gyms</h1>
         </div>
@@ -18,8 +9,8 @@
             <li><a href="#">Workout</a></li>
             <li><a href="#">Blogs</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">Signup</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="components/registeration/register.php">Signup</a></li>
+            <li><a href="components/registeration/login.php">Login</a></li>
             <li><a href="#">
                     <i class="fa fa-user"></i>
                     Username
@@ -31,5 +22,3 @@
             </li>
         </ul>
     </header>
-</body>
-</html>
