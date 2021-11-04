@@ -46,7 +46,7 @@
                 </form>
             </div> -->
         <div class="footer-bottom">
-            &copy; BlogsforBlogs|All rights Reserved
+            &copy; AAA-Gyms Limited|All rights Reserved
         </div>
     </div>
 </div>

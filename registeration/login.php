@@ -1,21 +1,40 @@
-<?php include("../header/header.php");?>
+<?php include('../path.php');?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login- AAA-Gyms</title>
+    <link rel="stylesheet" href="../assets/css/navigation.css">
+    <link rel="stylesheet" href="../assets/css/registeration.css">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
+</head>
 
-
-<div class="heading">
-    <h1>Login to AAA-Gyms</h1>
-    <div class="container">
+<body>
+    <?php include(ROOT_PATH."/components/header.php");?>
+    <div class="auth-content">
         <form action="login.php" method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+            <h1 class="form-title">Login to <span>AAA</span>-Gyms</h1>
+            <?php include(ROOT_PATH ."/helpers/formErrors.php");?>
+            <div>
+                <label>Email</label>
+                <input type="email" name="username" id="" class="text-input">
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" id="" class="text-input">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <div>
+                <button type="submit" name="login-btn" class="btn">Login</button>
+            </div>
+            <p>Or <a href="<?php echo BASE_URL.'/registeration/register.php'?>">Sign Up</a></p>
         </form>
     </div>
 
-</div>
+    <?php include(ROOT_PATH."/components/footer.php");?>
+</body>
+<script src="assets/js/script.js"></script>
+
+</html>
