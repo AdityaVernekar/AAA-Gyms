@@ -60,7 +60,7 @@ header ul li a {
   text-decoration: none;
 }
 header ul li a:hover {
-  background: #023233;
+  background: #dfeaeb;
   transition: 0.5s;
 }
 .heading h1 {

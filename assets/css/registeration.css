@@ -27,7 +27,7 @@ a {
   font-family: "Signika Negative", sans-serif;
 }
 a:hover {
-  color: rgb(2, 56, 100);
+  color: rgb(197, 202, 206);
 }
 .clearfix::after {
   content: "";

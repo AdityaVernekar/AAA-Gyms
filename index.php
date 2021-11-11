@@ -9,13 +9,18 @@
     <title>AAA Gyms</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/navigation.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <!-- Header -->
     <?php include("components/header.php");?>
     <!-- /Header -->
+    <?php include("components/messages.php");?>
     <!-- Slideshow comtainer -->
     <div class="slideshow-container">
         <div class="mySlides fade">
@@ -48,20 +53,20 @@
                             <h4>Start your Fitness Journey Today</h4>
 
                 </div>
-                <a href="#" class="btn">View More</a>
+                <a href="#" class="btn">Buy now</a>
             </div>
         </div>
     </div>
     <!-- branding -->
     <div class="centers">
-        <h2 class="title">AAA-Gyms</h2>
+        <h2 class="title">AAA<span>-Gyms</span></h2>
         <p class="muchmore">We can give you much more than others</p>
         <ul>
             <li><i class="fas fa-city large"></i><br>
                 <h3>3+ Gym centers</h3>
             </li>
-            <li><i class="fas fa-city large"></i><br>
-                <h3>24/7 Gym Support</h3>
+            <li><i class="fas fa-dumbbell large"></i><br>
+                <h3>Certified Trainers</h3>
             </li>
             <li><i class="fas fa-people-arrows large"></i><br>
                 <h3>Personal training</h3>

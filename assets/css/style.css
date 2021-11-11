@@ -122,7 +122,7 @@ a:hover {
 }
 /* features */
 .centers {
-  height: 300px;
+  height: 400px;
   /* background: url("../images/bg3.jpg"); */
   /* background-color: black; */
 }
@@ -131,7 +131,7 @@ a:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 45px;
+  padding: 85px;
 }
 .text-center {
   text-align: center;
@@ -143,13 +143,20 @@ a:hover {
   color: orangered;
   font-weight: bold;
   font-style: inherit;
-  /* margin-top: 0px; */
+  margin-top: 20px;
+
   text-align: center;
+  font-family: "Audiowide", cursive;
+
   /* text-shadow: 0 0 3px #084c79, 0 0 5px #0077ff; */
 }
+.title span {
+  color: white;
+}
 .muchmore {
+  font-family: "Ceviche One", cursive;
   text-align: center;
-  font-size: 2rem;
+  font-size: 4rem;
   color: yellow;
   font-weight: bold;
 }
@@ -209,11 +216,12 @@ a:hover {
   align-items: center;
 }
 .specialoffer-content h1 {
-  font-size: 3rem;
+  font-size: 5em;
   font-weight: bold;
   color: white;
   margin-right: 101px;
-  margin-top: 100px;
+
+  font-family: "Ceviche One", cursive;
 }
 .specialoffer-content a {
   position: relative;
@@ -229,4 +237,11 @@ a:hover {
 }
 .buygym h2 {
   margin-top: 0px;
+  font-family: "Bungee", cursive;
+  font-size: 2rem;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.buygym .btn {
+  position: relative;
 }
