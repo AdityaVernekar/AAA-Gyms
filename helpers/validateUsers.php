@@ -19,11 +19,11 @@ function validateUsers($user){
 
 
     $existingUser = selectOne('users',['email'=> $user['email']]);
-    if($existingUser){
-        if($existingUser['id']!=$user['id']){
-            
+    if(isset($existingUser)){
+        
+         
             array_push($errors,"Email Already Exists");
-        }
+        
     }
     return $errors;
 }

@@ -112,7 +112,14 @@ a:hover {
   /* margin-left: 20px; */
   padding: 10px 174px;
 }
-
+.otp-content {
+  border: 1px solid red;
+  padding: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .reg-button {
   padding: 0.7rem 1rem;
   background: rgb(1, 8, 8);
@@ -120,4 +127,8 @@ a:hover {
   border: 1px solid transparent;
   border-radius: 6px;
   margin: 5px;
+}
+.otp-button {
+  padding: 0.7 rem 6 rem;
+  margin-top: 32 px;
 }

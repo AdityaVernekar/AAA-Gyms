@@ -7,7 +7,7 @@ include(ROOT_PATH."/controllers/users.php");?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login- AAA-Gyms</title>
+    <title>Sign up- AAA-Gyms</title>
     <link rel="stylesheet" href="../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../assets/css/registeration.css">
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>

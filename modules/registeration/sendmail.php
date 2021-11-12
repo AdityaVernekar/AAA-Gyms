@@ -3,6 +3,13 @@ include(ROOT_PATH."/controllers/users.php");?>
 <!DOCTYPE html>
 
 <html lang="en">
+<?php
+
+    if($email_sent){
+        $_SESSION['message']="email sent successfully";
+        $_SESSION['type']="success";
+    }
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -23,18 +30,26 @@ include(ROOT_PATH."/controllers/users.php");?>
     <div class="container my-3">
         <form action="sendmail.php" method="post">
             <div class="auth-content">
-
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Enter OtP</label>
-                    <input type="number" class="form-control" name="otp" value="" id="exampleInputPassword1">
+                <div class="otp-content" style="border: 2px solid orangered;padding: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;">
+                    <?php include(ROOT_PATH ."/components/messages.php");?>
+                    <h3>Enter OTP sent to your email</h3>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Enter OTP</label>
+                        <input type="text" class="form-control" name="otp" value="" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn otp-button" name="otp-btn">Submit</button>
                 </div>
-                <button type="submit" class="btn btn-primary" name="otp-btn">Submit</button>
             </div>
         </form>
     </div>
+    <?php include(ROOT_PATH."/components/footer.php");?>
 </body>
 <!-- JavaScript Bundle with Popper -->
 
-</script>
+
 
 </html>
