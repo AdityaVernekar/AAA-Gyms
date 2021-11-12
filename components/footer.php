@@ -36,15 +36,15 @@
             </ul>
         </div>
         <!-- <div class="footer-section contact-form">
-                <h2>Contact us</h2>
-                <br>
-                <form action="index.html" method="post">
-                    <input type="email" name="email" placeholder="Your email address..." class="text-input contact-input">
-                    <textarea name="message" class="text-input contact-input" placeholder="Your message here..."></textarea>
-                    <button type="submit" class="btn btn-big contact-btn">
-                        <i class="fas fa-paper-plane"></i>Submit</button>
-                </form>
-            </div> -->
+            <h2>Contact us</h2>
+            <br>
+            <form action="index.html" method="post">
+                <input type="email" name="email" placeholder="Your email address..." class="text-input contact-input">
+                <textarea name="message" class="text-input contact-input" placeholder="Your message here..."></textarea>
+                <button type="submit" class="btn btn-big contact-btn">
+                    <i class="fas fa-paper-plane"></i>Submit</button>
+            </form>
+        </div> -->
         <div class="footer-bottom">
             &copy; AAA-Gyms Limited|All rights Reserved
         </div>

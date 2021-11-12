@@ -37,7 +37,7 @@ include(ROOT_PATH."/controllers/users.php");?>
                     class="text-input">
             </div>
             <div>
-                <button type="submit" name="register-btn" class="btn">Sign Up</button>
+                <button type="submit" name="register-btn" class="btn reg-button">Sign Up</button>
             </div>
             <p>Or <a href="<?php echo BASE_URL.'/registeration/login.php'?>">Log in</a></p>
         </form>
