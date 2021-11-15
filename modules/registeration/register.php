@@ -27,6 +27,25 @@ include(ROOT_PATH."/controllers/users.php");?>
                 <label>Email</label>
                 <input type="email" name="email" id="email" value="<?php echo $email;?>" class="text-input">
             </div>
+            <div class="dob">
+                <label>Add Your Date of Birth </label>
+                <input type="date" name="dob" id="dob" class="text-input">
+            </div>
+            <div class="numberinputs">
+                <label>Phone Number</label>
+                <input type="number" maxlength="10" name="phone" id="ph_no" class="text-input">
+            </div>
+            <div class="numberinputs">
+                <label style="margin-bottom: 10px;">
+                    Enter your Height(in cms) and Weight(in kgs)
+                </label>
+                <br>
+                Height:
+                <input type="number" maxlength="3" name="height" id="height" class="text-input"
+                    style="margin-bottom: 10px;">
+                Weight:
+                <input type="number" maxlength="3" name="weight" id="weight" class="text-input">
+            </div>
             <div>
                 <label>Password</label>
                 <input type="password" name="password" id="password" value="<?php echo $password;?>" class="text-input">

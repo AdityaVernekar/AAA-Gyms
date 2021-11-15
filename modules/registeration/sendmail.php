@@ -35,7 +35,7 @@ include(ROOT_PATH."/controllers/users.php");?>
   flex-direction: column;
   justify-content: center;
   align-items: center;">
-                    <?php include(ROOT_PATH ."/components/messages.php");?>
+                    <?php include(ROOT_PATH ."/helpers/formErrors.php");?>
                     <h3>Enter OTP sent to your email</h3>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Enter OTP</label>

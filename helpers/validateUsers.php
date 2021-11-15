@@ -16,6 +16,19 @@ function validateUsers($user){
     array_push($errors,"Passwords do not match");
 
     }
+    if(empty($user['dob'])){
+        array_push($errors,"Enter Date Of birth");
+
+    }
+    if(empty($user['phone'])){
+        array_push($errors,"Enter Mobile number");
+    }
+    if(empty($user['height'])){
+        array_push($errors,"Enter height");
+    }
+    if(empty($user['weight'])){
+        array_push($errors,"Enter weight");
+    }
 
 
     $existingUser = selectOne('users',['email'=> $user['email']]);
@@ -41,5 +54,15 @@ function validateLogin($user){
 
     return $errors;
 }
+// validate otp
+function validateOtp($user){
+    $errors = array();
+    if(empty($user['otp'])){
+        array_push($errors,"OTP is required");
+    }
+    return $errors;
+}
+
+
 
 ?>

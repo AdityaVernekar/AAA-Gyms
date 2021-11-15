@@ -29,6 +29,7 @@ include(ROOT_PATH."/controllers/users.php");?>
             </div>
             <div>
                 <button type="submit" name="login-btn" class="btn">Login</button>
+
             </div>
             <p>Or <a href="<?php echo BASE_URL.'/registeration/register.php'?>">Sign Up</a></p>
         </form>

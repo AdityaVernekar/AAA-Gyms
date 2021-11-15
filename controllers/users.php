@@ -9,6 +9,10 @@ $id='';
 $email='';
 $password='';
 $cpassword='';
+$mobile='';
+$dob='';
+$height='';
+$weight='';
 
 //function to login a user
 function loginUser($user){
@@ -21,7 +25,7 @@ function loginUser($user){
 
     
 
-    header("location:".BASE_URL."/modules/registeration/sendmail.php");
+    header("location:".BASE_URL."/modules/workout/workout.php");
     
     
     exit();
@@ -49,10 +53,10 @@ if(isset($_POST['register-btn'])){
         $_POST['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
             
             
-            $user_id = create('users',$_POST);
-            $user = selectOne('users',['id'=> $user_id]);
-            // sendotp($user);
-            loginUser($user);
+        $user_id = create('users',$_POST);
+        sendotp($_POST); 
+        // $user = selectOne('users',['id'=> $user_id]);
+        
            
         
     }
@@ -62,6 +66,10 @@ if(isset($_POST['register-btn'])){
         $email=$_POST['email'];
         $password=$_POST['password'];
         $cpassword=$_POST['cpassword'];
+        $mobile = $_POST['phone'];
+        $dob = $_POST['dob'];
+        $height = $_POST['height'];
+        $weight = $_POST['weight'];
     }
     
     
@@ -88,6 +96,29 @@ if(isset($_POST['login-btn'])){
         $password = $_POST['password'];
     }
     
+}
+if(isset($_POST['addon-btn'])){
+//     $errors = validateInfo($_POST);
+//     if(count($errors)===0){
+//         $id = $_POST['id'];
+//         unset($_POST['addon-btn'],$_POST['id']);
+        
+
+           
+            
+//             $count = update('users',$id,$_POST);
+//             $_SESSION['message']='data updated sucessfully';
+//             $_SESSION['type']='success';
+//             exit();
+        
+//     }
+//     else{
+//         $mobile = $_POST['phone'];
+//         $dob = $_POST['dob'];
+//         $height = $_POST['height'];
+//         $weight = $_POST['weight'];
+// }
+dd($_POST);
 }
 
 

@@ -132,3 +132,20 @@ a:hover {
   padding: 0.7 rem 6 rem;
   margin-top: 32 px;
 }
+
+/* addon info*/
+
+.auth-content .dob {
+  margin-bottom: 10px;
+}
+
+.auth-content .numberinputs .text-input {
+  margin-bottom: 10px;
+}
+
+.addontext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
