@@ -64,11 +64,12 @@ a:hover {
   font-size: 1.2em;
 }
 .msg {
-  width: 80%;
+  width: 90%;
   margin: 5px auto;
   padding: 8px;
   border-radius: 6px;
   list-style: none;
+  font-style: inherit;
 }
 .success {
   color: #3a6e3a;

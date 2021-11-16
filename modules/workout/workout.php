@@ -21,6 +21,7 @@ include(ROOT_PATH."/components/database/db.php");?>
 
 <body>
     <?php include(ROOT_PATH."/components/header.php");?>
+    <?php include(ROOT_PATH ."/components/messages.php");?>
 
     <!-- workout module to be done by avishkar -->
     <!-- use functions mentioned in database/db.php to edit data in msql database -->
