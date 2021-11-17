@@ -25,6 +25,16 @@ include(ROOT_PATH."/components/database/db.php");?>
 
     <!-- workout module to be done by avishkar -->
     <!-- use functions mentioned in database/db.php to edit data in msql database -->
+    <!-- Bro for css use classes mentioned in style.css for styling in assets folder -->
+    <!-- for eg to style an input box use class="text-input" to maintain uniformity dont create seperate classes again for same thing-->
+    <!-- also try to use bootstrap for skipping css and faster coding
+just include bootstrap css and script link in workout.php <head></head> element 
+-->
+    <!-- check youtube to use bootsrap 
+-->
+    <!-- i m pasting a link below to learn bootstrap us it for referance 
+-->
+    <?php $url = "https://youtu.be/eow125xV5-c"?>
 </body>
 
 </html>

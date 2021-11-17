@@ -20,9 +20,7 @@
                 <li><a href="<?php echo BASE_URL.'/modules/registeration/logout.php'?>" class="logout">Logout</a></li>
             </ul>
         </li>
-        <?php else: ?>
-        <li><a href="<?php echo BASE_URL.'/modules/registeration/register.php'?>">Signup</a></li>
-        <li><a href="<?php echo BASE_URL.'/modules/registeration/login.php'?>">Login</a></li>
+
         <?php endif; ?>
     </ul>
 </header>
