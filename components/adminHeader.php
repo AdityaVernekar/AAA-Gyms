@@ -16,7 +16,7 @@
                 <i class="fa fa-chevron-down" style="font-size: 9px;"></i></a>
             <ul>
 
-                <!-- <li><a href="#">Dashboard</a></li> -->
+                <li><a href="<?php echo BASE_URL . '/admin/dashboard.php'?>">Dashboard </a></li>
                 <li><a href="<?php echo BASE_URL.'/modules/registeration/logout.php'?>" class="logout">Logout</a></li>
             </ul>
         </li>

@@ -24,7 +24,7 @@ h6 {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: white;
 }
 
 .clearfix::after {
@@ -209,6 +209,9 @@ a {
   line-height: 1.5em;
   font-size: 1.03em;
   color: #444;
+  font-size: 20px;
+  padding: 10px 0px;
+  margin: 15px 0px;
 }
 
 .content .main-content .post .read-more {

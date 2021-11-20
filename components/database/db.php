@@ -2,8 +2,6 @@
 session_start();
 
 require("connect.php");
-
-
 // var_dump($users);
 // echo "<pre>". print_r($users)."</pre>";
 function dd($value){//to be deleted
@@ -112,4 +110,23 @@ function delete($table,$id){
     $stmt = executeQuery($sql,['id'=>$id]);
     return $stmt->affected_rows;
 }
+function getPublishedPosts()
+{
+    global $conn;
+    $sql = "SELECT p.*, u.name FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=?";
+
+    $stmt = executeQuery($sql, ['published' => 1]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+function selectTopics(){
+    global $conn;
+    $sql="SELECT topic FROM `posts`;";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $record;
+}
+
+
 ?>

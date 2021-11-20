@@ -1,5 +1,14 @@
 <?php include("../../path.php");
-include(ROOT_PATH."/components/database/db.php");?>
+include(ROOT_PATH."/components/database/db.php");
+
+
+$posts = array();
+$postsTitle = 'Recent Posts';
+$topics = selectTopics();
+
+$posts = getPublishedPosts();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +31,7 @@ include(ROOT_PATH."/components/database/db.php");?>
 
 <body>
     <?php include(ROOT_PATH."/components/header.php");?>
+
     <div class="page-wrapper">
         <!-- Post Slider -->
         <div class="post-slider">
@@ -30,56 +40,18 @@ include(ROOT_PATH."/components/database/db.php");?>
             <i class="fas fa-chevron-right next"></i>
 
             <div class="post-wrapper">
-
+                <?php foreach ($posts as $post):?>
                 <div class="post">
-                    <img src="../../assets/images/bg1.jpg" alt="" class="slider-image">
+                    <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
                     <div class="post-info">
-                        <h4><a href="single.php">One day your life will flash before your eyes</a></h4>
-                        <i class="far fa-user"> Author</i>
+                        <h4><a href="single.php"><?php echo $post['title']; ?></a></h4>
+                        <i class="far fa-user"> <?php echo $post['name']; ?></i>
                         &nbsp;
-                        <i class="far fa-calendar"> Mar 8, 2019</i>
+                        <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                     </div>
                 </div>
+                <?php endforeach; ?>
 
-                <div class="post">
-                    <img src="../../assets/images/bg1.jpg" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h4><a href="single.php">One day your life will flash before your eyes</a></h4>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 8, 2019</i>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <img src="../../assets/images/bg1.jpg" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h4><a href="single.php">One day your life will flash before your eyes</a></h4>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 8, 2019</i>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <img src="../../assets/images/bg1.jpg" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h4><a href="single.php">One day your life will flash before your eyes</a></h4>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 8, 2019</i>
-                    </div>
-                </div>
-
-                <div class="post">
-                    <img src="../../assets/images/bg1.jpg" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h4><a href="single.php">One day your life will flash before your eyes</a></h4>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 8, 2019</i>
-                    </div>
-                </div>
 
 
             </div>
@@ -92,64 +64,22 @@ include(ROOT_PATH."/components/database/db.php");?>
             <!-- Main Content -->
             <div class="main-content">
                 <h1 class="recent-post-title">Recent Posts</h1>
+                <?php foreach ($posts as $post): ?>
+                <div class="post clearfix">
+                    <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
+                    <div class="post-preview">
+                        <h2><a href="single.hmtl"><?php echo $post['title']; ?></a></h2>
+                        <i class="far fa-user"> <?php echo $post['name']; ?></i>
+                        &nbsp;
+                        <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
+                        <p class="preview-text">
+                            <?php echo html_entity_decode(substr($post['body'], 0, 300) . '...'); ?>
+                        </p>
+                        <a href="single.php" class="btn read-more">Read More</a>
+                    </div>
+                </div>
+                <?php endforeach; ?>
 
-                <div class="post clearfix">
-                    <img src="../../assets/images/main1.jpg" alt="" class="post-image">
-                    <div class="post-preview">
-                        <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 11, 2019</i>
-                        <p class="preview-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Exercitationem optio possimus a inventore maxime laborum.
-                        </p>
-                        <a href="single.php" class="btn read-more">Read More</a>
-                    </div>
-                </div>
-
-                <div class="post clearfix">
-                    <img src="../../assets/images/main1.jpg" alt="" class="post-image">
-                    <div class="post-preview">
-                        <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 11, 2019</i>
-                        <p class="preview-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Exercitationem optio possimus a inventore maxime laborum.
-                        </p>
-                        <a href="single.php" class="btn read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="post clearfix">
-                    <img src="../../assets/images/main1.jpg" alt="" class="post-image">
-                    <div class="post-preview">
-                        <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 11, 2019</i>
-                        <p class="preview-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Exercitationem optio possimus a inventore maxime laborum.
-                        </p>
-                        <a href="single.php" class="btn read-more">Read More</a>
-                    </div>
-                </div>
-                <div class="post clearfix">
-                    <img src="../../assets/images/main1.jpg" alt="" class="post-image">
-                    <div class="post-preview">
-                        <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-                        <i class="far fa-user"> Author</i>
-                        &nbsp;
-                        <i class="far fa-calendar"> Mar 11, 2019</i>
-                        <p class="preview-text">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                            Exercitationem optio possimus a inventore maxime laborum.
-                        </p>
-                        <a href="single.php" class="btn read-more">Read More</a>
-                    </div>
-                </div>
 
             </div>
             <!-- // Main Content -->
@@ -167,13 +97,9 @@ include(ROOT_PATH."/components/database/db.php");?>
                 <div class="section topics">
                     <h2 class="section-title">Topics</h2>
                     <ul>
-                        <li><a href="#">Poems</a></li>
-                        <li><a href="#">Quotes</a></li>
-                        <li><a href="#">Fiction</a></li>
-                        <li><a href="#">Biography</a></li>
-                        <li><a href="#">Motivation</a></li>
-                        <li><a href="#">Inspiration</a></li>
-                        <li><a href="#">Life Lessons</a></li>
+                        <?php foreach($topics as $topic):?>
+                        <li><a href="#"><?php echo $topic['topic']?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
 
