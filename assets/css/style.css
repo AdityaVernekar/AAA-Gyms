@@ -181,10 +181,20 @@ a:hover {
   padding: 70px;
 }
 .add {
+  border: 1px solid transparent;
+  background: rgb(1, 8, 8);
+  color: white;
+  border-radius: 6px;
+  margin: 5px;
   position: relative;
   top: 14%;
   left: 40.5%;
   padding: 15px 70px;
+}
+.add:hover {
+  color: white !important;
+  background-color: orangered;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
 }
 
 .ad_text {

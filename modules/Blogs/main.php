@@ -1,5 +1,5 @@
 <?php include("../../path.php");
-include(ROOT_PATH."/components/database/db.php");
+include(ROOT_PATH."/controllers/posts.php");
 
 
 $posts = array();
@@ -68,14 +68,15 @@ $posts = getPublishedPosts();
                 <div class="post clearfix">
                     <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
                     <div class="post-preview">
-                        <h2><a href="single.hmtl"><?php echo $post['title']; ?></a></h2>
+                        <h2><?php echo $post['title']; ?></h2>
                         <i class="far fa-user"> <?php echo $post['name']; ?></i>
                         &nbsp;
                         <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                         <p class="preview-text">
                             <?php echo html_entity_decode(substr($post['body'], 0, 300) . '...'); ?>
                         </p>
-                        <a href="single.php" class="btn read-more">Read More</a>
+                        <a href="single.php?id=<?php echo $post['id'];?>" class="btn read-more" name="read-btn">Read
+                            More</a>
                     </div>
                 </div>
                 <?php endforeach; ?>

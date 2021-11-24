@@ -87,7 +87,7 @@ include(ROOT_PATH."/components/database/db.php");?>
         <p class="ad_text  text-center ">Hurry!!Grab a seat <span>NOW!!</span></p>
         <h4 class="text-center" style="color: white;">Click below to register</h4>
         <i class="fas fa-arrow-down"></i>
-        <a href="register.php" class="btn add">Register</a>
+        <a href="register.php" class="add">Register</a>
     </div>
     <!-- /branding -->
     <!-- Footer -->

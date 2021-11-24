@@ -24,7 +24,7 @@ h6 {
 
 a {
   text-decoration: none;
-  color: white;
+  color: rgb(3, 3, 3);
 }
 
 .clearfix::after {
@@ -243,6 +243,9 @@ a {
   padding: 10px;
   float: right;
 }
+.content .main-content .post .post-preview h2 {
+  cursor: pointer;
+}
 
 .content .main-content .recent-post-title {
   margin: 20px;
@@ -289,4 +292,67 @@ a {
 .content .sidebar .section.topics ul li a:hover {
   padding-left: 10px;
   transition: all 0.3s;
+}
+
+.blog-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blog-image {
+  width: 100%;
+  height: auto;
+}
+
+/* comments section */
+
+.display-comments {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-body {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 12px 38px;
+  /* border: 2px solid black; */
+  font-size: 25px;
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+.comment-header img {
+  width: 50px;
+  border-radius: 40px;
+  display: inline;
+  margin-bottom: 0px;
+}
+.comment-header p {
+  padding-top: 8px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+.comment-body > p {
+  display: inline-block;
+  font-size: 25px;
+  margin: 0px 25px;
+  font-size: 22px;
+}
+.comment-header > * {
+  /* display: flex; */
+  display: inline-block;
+}
+.comment-header h4 {
+  font-size: 25px;
+  margin-top: 4px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.comment-footer > p {
+  font-weight: 700;
+  margin-left: 10px;
+}
+.comment-container {
+  background-color: white;
 }

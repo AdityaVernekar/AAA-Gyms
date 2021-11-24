@@ -1,5 +1,15 @@
 <?php include("../../path.php");
-include(ROOT_PATH."/components/database/db.php");?>
+include(ROOT_PATH."/controllers/posts.php");
+
+if (isset($_GET['id'])) {
+    $post = selectOne('posts', ['id' => $_GET['id']]);
+  }
+
+  $comments = selectAll('comments', ['blog_id' => $post['id']]);
+  $topics = selectTopics();
+  $posts = getPublishedPosts();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +28,9 @@ include(ROOT_PATH."/components/database/db.php");?>
     <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -31,79 +44,14 @@ include(ROOT_PATH."/components/database/db.php");?>
             <!-- Main Content Wrapper -->
             <div class="main-content-wrapper">
                 <div class="main-content single">
-                    <h1 class="post-title">This is the title of the Post</h1>
+                    <h1 class="post-title"><?php echo $post['title']; ?></h1>
+                    <div class="blog-image-container">
 
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt=""
+                            class="blog-image">
+                    </div>
                     <div class="post-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus
-                            animi! Eos!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae!
-                            Ipsa
-                            repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat
-                            dolores nulla,
-                            expedita voluptas officiis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia
-                            hic recusandae
-                            optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente
-                            iste asperiores
-                            nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus
-                            animi! Eos!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae!
-                            Ipsa
-                            repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat
-                            dolores nulla,
-                            expedita voluptas officiis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia
-                            hic recusandae
-                            optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente
-                            iste asperiores
-                            nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus
-                            animi! Eos!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae!
-                            Ipsa
-                            repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat
-                            dolores nulla,
-                            expedita voluptas officiis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia
-                            hic recusandae
-                            optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente
-                            iste asperiores
-                            nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus
-                            animi! Eos!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae!
-                            Ipsa
-                            repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat
-                            dolores nulla,
-                            expedita voluptas officiis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia
-                            hic recusandae
-                            optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente
-                            iste asperiores
-                            nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus
-                            animi! Eos!
-                        </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae!
-                            Ipsa
-                            repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat
-                            dolores nulla,
-                            expedita voluptas officiis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia
-                            hic recusandae
-                            optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente
-                            iste asperiores
-                            nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
+                        <?php echo html_entity_decode($post['body']); ?>
                     </div>
 
                 </div>
@@ -113,59 +61,26 @@ include(ROOT_PATH."/components/database/db.php");?>
             <!-- Sidebar -->
             <div class="sidebar single">
 
-                <div class="fb-page" data-href="https://web.facebook.com/codingpoets/" data-small-header="false"
-                    data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-                    <blockquote cite="https://web.facebook.com/codingpoets/" class="fb-xfbml-parse-ignore"><a
-                            href="https://web.facebook.com/codingpoets/">Coding Poets</a></blockquote>
-                </div>
-
-
                 <div class="section popular">
                     <h2 class="section-title">Popular</h2>
+                    <?php foreach ($posts as $post) : ?>
+                    <div class="post clearfix">
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="">
+                        <a href="" class="title">
+                            <h4><?php echo $post['title'] ?></h4>
+                        </a>
+                        <?php endforeach; ?>
+                    </div>
 
-                    <div class="post clearfix">
-                        <img src="../../assets/images/gym1.jpg" alt="">
-                        <a href="" class="title">
-                            <h4>How to overcome your fears</h4>
-                        </a>
-                    </div>
-                    <div class="post clearfix">
-                        <img src="../../assets/images/gym2.jpg" alt="">
-                        <a href="" class="title">
-                            <h4>How to overcome your fears</h4>
-                        </a>
-                    </div>
-                    <div class="post clearfix">
-                        <img src="../../assets/images/gym3.jpg" alt="">
-                        <a href="" class="title">
-                            <h4>How to overcome your fears</h4>
-                        </a>
-                    </div>
-                    <div class="post clearfix">
-                        <img src="../../assets/images/gym4.jpg" alt="">
-                        <a href="" class="title">
-                            <h4>How to overcome your fears</h4>
-                        </a>
-                    </div>
-                    <div class="post clearfix">
-                        <img src="../../assets/images/bg1.jpg" alt="">
-                        <a href="" class="title">
-                            <h4>How to overcome your fears</h4>
-                        </a>
-                    </div>
 
                 </div>
 
                 <div class="section topics">
                     <h2 class="section-title">Topics</h2>
                     <ul>
-                        <li><a href="#">Poems</a></li>
-                        <li><a href="#">Quotes</a></li>
-                        <li><a href="#">Fiction</a></li>
-                        <li><a href="#">Biography</a></li>
-                        <li><a href="#">Motivation</a></li>
-                        <li><a href="#">Inspiration</a></li>
-                        <li><a href="#">Life Lessons</a></li>
+                        <?php foreach($topics as $topic):?>
+                        <li><a href="#"><?php echo $topic['topic']?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -173,11 +88,61 @@ include(ROOT_PATH."/components/database/db.php");?>
 
         </div>
         <!-- // Content -->
+        <!-- comment section -->
+        <div class="comment-section-container">
+            <h1>Comments</h1>
+            <?php
+            if(!isset($_SESSION['id'])){
+                echo "<h3>Please login to comment</h3>";
+
+            }else{
+                echo "<h1>You can comment here</h1>";
+                echo '<form action="main.php" method="post">
+                <input type="hidden" name="blog_id" value='.$post['id'].'>
+            <input type="hidden" name="user_id" value=' .$_SESSION['id']. '>
+            <input type="hidden" name="username" value='.$_SESSION['name'].'>
+            <input type="text" name="body" placeholder="Comment here" class="text-input">
+            <input type="submit" name="createComment" class="btn" value="Comment">
+            </form>';
+
+
+            }
+            ?>
+
+
+            <div class="display-comments">
+
+                <?php foreach($comments as $comment) : ?>
+                <div class="comment-container">
+                    <div class="comment-header">
+                        <img src="../../assets/images/user.png" alt="user">
+                        <h4><?php echo $comment['username']; ?></h4>
+
+                        <p><?php echo date('F j, Y', strtotime($comment['created_at'])); ?></p>
+                    </div>
+
+                    <div class="comment-body">
+
+                        <p><?php echo $comment['body']; ?></p>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
     </div>
     <!-- // Page Wrapper -->
     <?php include(ROOT_PATH."/components/footer.php");?>
 </body>
 <script src="../../assets/js/blog.js"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
 </html>

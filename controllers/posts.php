@@ -23,8 +23,17 @@ if (isset($_GET['id'])) {
     $id = $post['id'];
     $title = $post['title'];
     $body = $post['body'];
-    $topic_id = $post['topic_id'];
+    $topic = $post['topic'];
     $published = $post['published'];
+   
+    
+    
+}
+if(isset($_POST['read-btn'])){
+    dd($_POST);
+    $viewcount+=1;
+
+    $updatecount = update($table, $id, ['viewcount' => $viewcount]);
 }
 if (isset($_GET['delete_id'])) {
     // adminOnly();
@@ -83,5 +92,21 @@ if (isset($_POST['add-post'])) {
     // dd($_POST);
     // dd($_FILES['image']);
 }
+if(isset($_POST['createComment'])){
 
+    unset($_POST['createComment']);
+   
+    // dd($_POST);
+    
+     if(isset($_POST['username'])){
+
+         $comment = create('comments', $_POST);
+         $_SESSION['message'] = "Comment added successfully";
+         $_SESSION['type'] = "success";
+     }
+    
+  
+    
+    
+}
 ?>
