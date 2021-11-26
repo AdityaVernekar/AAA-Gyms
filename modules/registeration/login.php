@@ -1,5 +1,6 @@
 <?php include('../../path.php');
-include(ROOT_PATH."/controllers/users.php");?>
+include(ROOT_PATH."/controllers/users.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +20,15 @@ include(ROOT_PATH."/controllers/users.php");?>
     <div class="auth-content">
         <form action="login.php" method="post">
             <h1 class="form-title">Login to <span>AAA</span>-Gyms</h1>
-            <?php include(ROOT_PATH ."/helpers/formErrors.php");?>
+            <?php
+
+if(count($errors)>0):?>
+            <div class="msg error">
+                <?php foreach($errors as $error):?>
+                <li><?php echo $error;?></li>
+                <?php endforeach; ?>
+            </div>
+            <?php endif;?>
             <div>
                 <label>Email</label>
                 <input type="email" name="email" id="email" value="<?php echo $email;?>" class="text-input">

@@ -40,20 +40,6 @@ function loginUser($user){
     
 }
 
-
-// function validateOTP($otp){
-//     $otp = $_POST['otp'];
-//     if($otp == $org_otp){
-//         echo "otp correct";
-//         return true;
-        
-//     }
-//     else{
-//         array_push($errors,"Wrong OTP");
-//         return false;
-//     }
-// }
-
 //function to register a user
 if(isset($_POST['register-btn'])|| isset($_POST['create-admin'])){
     $errors = validateUsers($_POST);
@@ -74,7 +60,7 @@ if(isset($_POST['register-btn'])|| isset($_POST['create-admin'])){
             $user_id = create('users',$_POST);
             sendotp($_POST);     
         }   
-        // $user = selectOne('users',['id'=> $user_id]);
+       
         
            
         

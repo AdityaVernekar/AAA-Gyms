@@ -35,7 +35,15 @@ include(ROOT_PATH."/controllers/users.php");?>
   flex-direction: column;
   justify-content: center;
   align-items: center;">
-                    <?php include(ROOT_PATH ."/helpers/formErrors.php");?>
+                    <?php
+
+if(count($errors)>0):?>
+                    <div class="msg error">
+                        <?php foreach($errors as $error):?>
+                        <li><?php echo $error;?></li>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php endif;?>
                     <h3>Enter OTP sent to your email</h3>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Enter OTP</label>
