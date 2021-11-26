@@ -18,7 +18,15 @@ include(ROOT_PATH."/controllers/users.php");?>
     <div class="auth-content">
         <form action="register.php" method="post">
             <h1 class="form-title">Sign Up to <span>AAA</span>-Gyms</h1>
-            <?php include(ROOT_PATH ."/helpers/formErrors.php");?>
+            <?php
+
+if(count($errors)>0):?>
+            <div class="msg error">
+                <?php foreach($errors as $error):?>
+                <li><?php echo $error;?></li>
+                <?php endforeach; ?>
+            </div>
+            <?php endif;?>
             <div>
                 <label>Username</label>
                 <input type="text" name="name" id="name" value="<?php echo $name;?>" class="text-input">
@@ -36,14 +44,12 @@ include(ROOT_PATH."/controllers/users.php");?>
                 <input type="number" maxlength="10" name="phone" id="ph_no" class="text-input">
             </div>
             <div class="numberinputs">
-                <label style="margin-bottom: 10px;">
-                    Enter your Height(in cms) and Weight(in kgs)
-                </label>
+
                 <br>
-                Height:
+                Height(in cms):
                 <input type="number" maxlength="3" name="height" id="height" class="text-input"
                     style="margin-bottom: 10px;">
-                Weight:
+                Weight(in kgs):
                 <input type="number" maxlength="3" name="weight" id="weight" class="text-input">
             </div>
             <div>
