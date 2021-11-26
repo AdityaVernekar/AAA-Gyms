@@ -5,7 +5,7 @@
     <i class="fas fa-bars bar-logo"></i>
     <ul class="nav">
         <li><a href="<?php echo BASE_URL . '/index.php'?>">Home</a></li>
-        <li><a href="#">Workout</a></li>
+        <li><a href="<?php echo BASE_URL.'/modules/workout/workout.php' ?>">Workout</a></li>
         <li><a href="<?php echo BASE_URL.'/modules/Blogs/main.php'?>">Blogs</a></li>
         <li><a href="#">Products</a></li>
 

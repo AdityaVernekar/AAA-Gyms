@@ -1,84 +1,77 @@
-.container{
-    display: flex;
-   
-    margin: 40px;
-    padding: 20px;
-    height: 668px;
-    width: 1403px
-    flex-direction: column;
-    flex-wrap: wrap;
+.container {
+  display: flex;
 
+  margin: 40px;
+  padding: 20px;
+  height: 668px;
+  width: 1403px;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.item{
-    display: flex;
-    
-    background-color: rgb(179, 197, 202);
-    background-image: url("https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/321/321518/protein-shakes-are-good-weight-gain-foods.jpg?w=1155&h=1541");
-    margin: 20px;
-    padding: 0px;
-    width: 299px;
-    height: 260px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    border-radius: 6px;
-    flex: 0 32%;
-  
+.item {
+  display: flex;
+
+  background-color: rgb(179, 197, 202);
+  background-image: url("https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/321/321518/protein-shakes-are-good-weight-gain-foods.jpg?w=1155&h=1541");
+  margin: 20px;
+  padding: 0px;
+  width: 299px;
+  height: 260px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 6px;
+  flex: 0 32%;
+
   margin-bottom: 2%;
-    
 }
 
+.titl1 {
+  display: flex;
 
-.titl1{
-    display: flex;
-   
-    margin: 0px 0px;
-    padding: 5px;
-    width: 285px;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 29px;    
-    justify-content: center;
-    border-radius: 19px;
-    cursor: pointer;
-
+  margin: 0px 0px;
+  padding: 5px;
+  width: 285px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 29px;
+  justify-content: center;
+  border-radius: 19px;
+  cursor: pointer;
 }
 
-
-.item:hover{box-shadow: 10px 10px 10px;
-                    
+.item:hover {
+  box-shadow: 10px 10px 10px;
 }
-.titlmid1{
-    display: flex;
-   
-    margin: 0px;
-    padding: 0px;
-    height: 135px;
-    width: 294px;
-}
+.titlmid1 {
+  display: flex;
 
-.titlend1{
-    display: flex;
-   
-    margin: 3px 3px;
-    height: 70px;
-    width: 290  px;
-    align-items: center;
-    justify-content: right;
-  
+  margin: 0px;
+  padding: 0px;
+  height: 135px;
+  width: 294px;
 }
 
+.titlend1 {
+  display: flex;
 
-.img{
-    width: 298px;
-    height: 211px;
-    border-radius: 15px;
+  margin: 3px 3px;
+  height: 70px;
+  width: 290 px;
+  align-items: center;
+  justify-content: right;
 }
 
-.Oicon{
-    text-align: center;
-    width: 47px;
-    height: 59px;
-    background-color: white;
-    border-radius: 15px;
-cursor: pointer;
-  
+.img {
+  width: 298px;
+  height: 211px;
+  border-radius: 15px;
+}
+
+.Oicon {
+  text-align: center;
+  width: 47px;
+  height: 59px;
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
 }
