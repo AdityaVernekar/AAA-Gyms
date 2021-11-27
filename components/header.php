@@ -5,19 +5,11 @@
     <i class="fas fa-bars bar-logo"></i>
     <ul class="nav">
         <li><a href="<?php echo BASE_URL . '/index.php'?>">Home</a></li>
-<<<<<<< HEAD
-        <li><a href="#">Workout</a></li>
-        <li><a href="<?php echo BASE_URL . '/modules/Blogs/main.php'?>">Blogs</a></li>
-        <li><a href="<?php echo BASE_URL . '/modules/Products/main.php'?>">Products</a></li>
-||||||| 0aa0a45
-        <li><a href="#">Workout</a></li>
-        <li><a href="<?php echo BASE_URL.'/modules/Blogs/main.php'?>">Blogs</a></li>
-        <li><a href="#">Products</a></li>
-=======
+
         <li><a href="<?php echo BASE_URL.'/modules/workout/workout.php' ?>">Workout</a></li>
         <li><a href="<?php echo BASE_URL.'/modules/Blogs/main.php'?>">Blogs</a></li>
-        <li><a href="#">Products</a></li>
->>>>>>> 11b0cd527f90aeab71380e6f9726cad1a59bdbcd
+        <li><a href="<?php echo BASE_URL.'/modules/Products/main.php'?>">Products</a></li>
+
 
         <?php if(isset($_SESSION['name'])): ?>
         <li><a href="#">
