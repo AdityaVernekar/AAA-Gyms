@@ -1,5 +1,8 @@
 <?php 
-include("../../path.php");?>
+include("../../path.php");
+include(ROOT_PATH."/controllers/products.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,66 +47,90 @@ include("../../path.php");?>
     </div>
     <!-- Carousel images -->
     <div class="container">
+        <div class="heading">
+            Limited Time Offer
+        </div>
         <ul id="autoWidth" class="cs-hidden">
+            <?php foreach($products as $product):?>
             <li class="item-a">
                 <div class="box">
                     <div class="box-img">
-                        <img src="../../assets/images/products/product1.jpg" alt="">
+                        <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="">
                         <div class="overlay">
-                            <a href="" class="buy-btn">Buy</a>
+                            <a href="product.php?id=<?php echo $product['id'];?>" class="buy-btn">Buy</a>
                         </div>
                     </div>
                     <div class="box-content">
                         <div class="type">
-                            <a href="">TreadMill</a>
+                            <a href=""><?php 
+                                if(strlen($product['name']) > 30){
+                                    echo substr($product['name'], 0, 30) . '...';
+                                }
+                                ?></a>
                             <a href="" class="category">Category</a>
+                            <div class="price-container">
+                                <span class="price">₹<?php echo $product['price']-$product['discount'];?></span>
+                                <p class="discount"><strike>₹<?php echo $product['price'];?></strike></p>
+
+                            </div>
+
                         </div>
-                        <span class="price">₹ 100</span>
                         <!-- <a href="../../controllers/products/add_to_cart.php?id=1" class="btn">Buy Now</a> -->
                     </div>
                 </div>
             </li>
-            <li class="item-b">
-                <div class="box">
-                    <div class="box-img">
-                        <img src="../../assets/images/products/product1.jpg" alt="">
-                        <div class="overlay">
-                            <a href="" class="buy-btn">Buy</a>
-                        </div>
-                    </div>
-                    <div class="box-content">
-                        <div class="type">
-                            <a href="">TreadMill</a>
-                            <a href="" class="category">Category</a>
-                        </div>
-                        <span class="price">₹ 100</span>
-                        <!-- <a href="../../controllers/products/add_to_cart.php?id=1" class="btn">Buy Now</a> -->
-                    </div>
-                </div>
-            </li>
-            <li class="item-c">
-                <div class="box">
-                    <div class="box-img">
-                        <img src="../../assets/images/products/product1.jpg" alt="">
-                        <div class="overlay">
-                            <a href="" class="buy-btn">Buy</a>
-                        </div>
-                    </div>
-                    <div class="box-content">
-                        <div class="type">
-                            <a href="">TreadMill</a>
-                            <a href="" class="category">Category</a>
-                        </div>
-                        <span class="price">₹ 100</span>
-                        <!-- <a href="../../controllers/products/add_to_cart.php?id=1" class="btn">Buy Now</a> -->
-                    </div>
-                </div>
-            </li>
+            <?php endforeach;?>
 
         </ul>
 
+        <div class="heading">
+            Hurry Up! Limited Stock
+        </div>
+        <ul id="chont" class="cs-hidden">
+            <?php foreach($products as $product):?>
+            <li class="item-a">
+                <div class="box">
+                    <div class="box-img">
+                        <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="">
+                        <div class="overlay">
+                            <a href="" class="buy-btn">Buy</a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="type">
+                            <a href=""><?php 
+                                if(strlen($product['name']) > 20){
+                                    echo substr($product['name'], 0, 20) . '...';
+                                }
+                                ?></a>
+                            <a href="" class="category">Category</a>
+                        </div>
+                        <span class="price">₹<?php echo $product['price'];?></span>
+                        <!-- <a href="../../controllers/products/add_to_cart.php?id=1" class="btn">Buy Now</a> -->
+                    </div>
+                </div>
+            </li>
+            <?php endforeach;?>
+
+        </ul>
+
+
     </div>
+
+    <?php include(ROOT_PATH."/components/footer.php");?>
+
     <script src="../../assets/js/script.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#chont").lightSlider({
+            autoWidth: true,
+            loop: true,
+            onSliderLoad: function() {
+                $("#chont").removeClass("cS-hidden");
+            },
+        });
+    });
+    </script>
 </body>
 
 

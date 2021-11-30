@@ -20,6 +20,15 @@ if (isset($_GET['delete_id'])) {
     header("location: " . BASE_URL . "/admin/products/index.php"); 
     exit();
 }
+if(isset($_GET['id'])){
+    $product = selectOne($table, ['id' => $_GET['id']]);
+    $id = $product['id'];
+    $name = $product['name'];
+    $body = $product['body'];
+    $price = $product['price'];
+    $stocks = $product['stocks'];
+    $discount = $product['discount'];
+}
 
 if(isset($_POST['add-product'])){
     $errors = validateProducts($_POST);
