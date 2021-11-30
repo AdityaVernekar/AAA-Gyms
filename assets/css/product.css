@@ -110,7 +110,7 @@ a {
 }
 
 .category {
-  color: rgba(65, 63, 63, 0.5);
+  color: rgba(235, 57, 57, 0.596);
 }
 .price-container {
   display: flex;
@@ -209,6 +209,16 @@ a {
   font-size: 20px;
   line-height: 39px;
 }
+.proprice {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.proprice .category_display {
+  margin-left: 10px;
+  color: orangered;
+  font-weight: 600;
+}
 
 .right-container {
   margin: 20px 30px;
@@ -225,4 +235,15 @@ a {
 .desc {
   margin: 10px;
   list-style: none;
+}
+.table > * {
+  margin: 10px;
+}
+.fa-check-circle {
+  color: #068034;
+  margin-right: 5px;
+}
+
+.body {
+  margin: 10px;
 }

@@ -67,12 +67,22 @@ include(ROOT_PATH."/controllers/products.php");
                                     echo substr($product['name'], 0, 30) . '...';
                                 }
                                 ?></a>
-                            <a href="" class="category">Category</a>
+
                             <div class="price-container">
                                 <span class="price">₹<?php echo $product['price']-$product['discount'];?></span>
                                 <p class="discount"><strike>₹<?php echo $product['price'];?></strike></p>
 
                             </div>
+                            <a href="" class="category" style="color: orangered;
+                                                                font-size: 13px;
+                                                            font-weight: 600;"><?php 
+                                if(strlen($product['category']) > 20){
+                                    echo substr($product['category'], 0, 20) . '...';
+                                }
+                                else{
+                                    echo $product['category'];
+                                }
+                                ?></a>
 
                         </div>
                         <!-- <a href="../../controllers/products/add_to_cart.php?id=1" class="btn">Buy Now</a> -->

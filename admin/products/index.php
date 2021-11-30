@@ -47,6 +47,7 @@ include(ROOT_PATH . "/controllers/products.php");
                         <th>Price</th>
                         <th>Total Stocks</th>
                         <th>Discount</th>
+                        <th>Category</th>
                         <!-- <th>Author</th> -->
                         <th colspan="3">Action</th>
                     </thead>
@@ -58,6 +59,7 @@ include(ROOT_PATH . "/controllers/products.php");
                             <td><?php echo $product['price']; ?></td>
                             <td><?php echo $product['stocks']; ?></td>
                             <td><?php echo $product['discount']; ?></td>
+                            <td><?php echo $product['category']; ?></td>
                             <!-- <td>Author</td> -->
                             <!-- <td><a href="edit.php?id=<?php echo $product['id']; ?>" class="edit">edit</a></td> -->
                             <td><a href="index.php?delete_id=<?php echo $product['id']; ?>" class="delete">delete</a>

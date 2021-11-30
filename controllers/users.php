@@ -30,7 +30,7 @@ function loginUser($user){
     if ($_SESSION['admin']) {
         header("location:".BASE_URL."/admin/dashboard.php");
     } else {
-        header("location:".BASE_URL."/modules/workout/workout.php");
+        header("location:".BASE_URL."/modules/workout/index.php");
     }
     exit();
 

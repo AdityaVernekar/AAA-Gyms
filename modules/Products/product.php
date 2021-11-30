@@ -14,6 +14,7 @@ include(ROOT_PATH."/controllers/products.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../assets/css/product.css">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <title><?php echo $product['name'];?></title>
 </head>
 
@@ -34,36 +35,39 @@ include(ROOT_PATH."/controllers/products.php");
             <div class="price-container proprice">
                 <span class="price">₹<?php echo $product['price']-$product['discount'];?></span>
                 <p class="discount"><strike>₹<?php echo $product['price'];?></strike></p>
-
+                <span class="category_display"><?php echo $product['category'];?></span>
             </div>
 
             <div class="offers">
                 <h4 class="heading">Available offers</h4>
                 <ul>
 
-                    <li>Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C</li>
+                    <li><i class="fas fa-check-circle"></i>Bank Offer5% Unlimited
+                        Cashback on Flipkart Axis Bank Credit CardT&C</li>
 
-                    <li>Bank Offer20% off on 1st txn with Amex Network Cards issued by ICICI Bank,IndusInd Bank,SBI
+                    <li><i class="fas fa-check-circle"></i>Bank Offer20% off on 1st txn with Amex Network Cards issued
+                        by ICICI Bank,IndusInd Bank,SBI
                         Cards and MobikwikT&C</li>
 
-                    <li>Bank Offer15% Instant discount on first Pay Later order of ₹500 and aboveT&C</li>
+                    <li><i class="fas fa-check-circle"></i>Bank Offer15% Instant discount on first Pay Later order of
+                        ₹500 and aboveT&C</li>
 
-                    <li>Special PriceGet extra 5% offT&C</li>
+                    <li><i class="fas fa-check-circle"></i>Special PriceGet extra 5% offT&C</li>
                 </ul>
             </div>
             <div class="desc">
                 <p class="heading">Description:</p>
-                <p> <?php echo html_entity_decode($product['body']); ?></p>
+                <p class="body"> <?php echo html_entity_decode($product['body']); ?></p>
             </div>
             <div class="table" style="margin:10px;">
-                <span style="display:inline;">Delivery:</span> &nbsp; &nbsp;
-                <span style="">02 Dec 2021</span>
+                <span style="display:inline;margin-top:10px;font-weight:600;">Delivery:</span> &nbsp; &nbsp;
+                <span style="" id="date"></span>
 
-                <p style="">Seller:</p> &nbsp; &nbsp;
-                <span style="    left: 62px;
+                <p style="margin-top:10px;font-weight:600;">Seller:</p> &nbsp; &nbsp;
+                <span style="     left: 91px;
     display: inline;
     position: relative;
-    top: -17px;">AAA-Gyms Pvt Limited</span>
+    top: -27px;">AAA-Gyms Pvt Limited</span>
 
             </div>
 
@@ -71,7 +75,25 @@ include(ROOT_PATH."/controllers/products.php");
     </div>
 
     <?php include(ROOT_PATH."/components/footer.php");?>
+    <script>
+    const date = document.querySelector("#date");
+    const date1 = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000).toDateString();
 
+    date.textContent = date1;
+
+    const cart = document.querySelector(".cart");
+    cart.addEventListener("click", function(e) {
+        e.preventDefault();
+        // alert("Product added to cart");
+        cart.textContent = "Added to Cart";
+        cart.style.backgroundColor = "green";
+        setTimeout(() => {
+            cart.textContent = "Add to Cart";
+            cart.style.backgroundColor = "";
+        }, 5000);
+
+    });
+    </script>
     <script src="../../assets/js/script.js"></script>
 </body>
 

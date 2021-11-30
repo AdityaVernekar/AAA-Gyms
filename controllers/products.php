@@ -9,6 +9,7 @@ $body="";
 $price=0;
 $stocks = 0;
 $discount=0;
+$category="";
 $errors = array();
 $products = selectAll($table);
 
@@ -28,6 +29,7 @@ if(isset($_GET['id'])){
     $price = $product['price'];
     $stocks = $product['stocks'];
     $discount = $product['discount'];
+    $category = $product['category'];
 }
 
 if(isset($_POST['add-product'])){
@@ -62,6 +64,7 @@ if(isset($_POST['add-product'])){
         $price=$_POST['price'];
         $stocks=$_POST['stocks'];
         $discount = $_POST['discount'];
+        $category = $_POST['category'];
     }
 
 }

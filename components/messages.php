@@ -8,3 +8,8 @@
         ?>
 </div>
 <?php endif;?>
+<script>
+setTimeout(function() {
+    $('.msg').fadeOut(1000);
+}, 2000);
+</script>
