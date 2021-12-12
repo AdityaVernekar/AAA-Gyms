@@ -21,6 +21,9 @@
                 <?php if(($_SESSION['admin'])==1): ?>
                 <li><a href="<?php echo BASE_URL . '/admin/dashboard.php'?>">Dashboard </a></li>
                 <?php endif; ?>
+                <?php if(isset($_SESSION['cart'])): ?>
+                <li><a href="<?php echo BASE_URL . '/modules/Products/cart/cart.php'?>">Cart </a></li>
+                <?php endif; ?>
                 <li><a href="<?php echo BASE_URL.'/modules/registeration/logout.php'?>" class="logout">Logout</a></li>
             </ul>
         </li>

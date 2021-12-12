@@ -44,8 +44,8 @@ $posts = getPublishedPosts();
                 <div class="post">
                     <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
                     <div class="post-info">
-                        <h4><a href="single.php"><?php echo $post['title']; ?></a></h4>
-                        <i class="far fa-user"> <?php echo $post['name']; ?></i>
+                        <h3><a href="single.php"><?php echo $post['title']; ?></a></h3>
+                        <i class="far fa-user"> <?php echo $post['author']; ?></i>
                         &nbsp;
                         <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                     </div>
@@ -69,7 +69,7 @@ $posts = getPublishedPosts();
                     <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
                     <div class="post-preview">
                         <h2><?php echo $post['title']; ?></h2>
-                        <i class="far fa-user"> <?php echo $post['name']; ?></i>
+                        <i class="far fa-user"> <?php echo $post['author']; ?></i>
                         &nbsp;
                         <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                         <p class="preview-text">

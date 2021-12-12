@@ -13,6 +13,7 @@ $category="";
 $errors = array();
 $products = selectAll($table);
 
+
 if (isset($_GET['delete_id'])) {
     // adminOnly();
     $count = delete($table, $_GET['delete_id']);

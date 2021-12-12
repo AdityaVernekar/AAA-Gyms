@@ -27,11 +27,25 @@ function loginUser($user){
     $_SESSION['message']="You are now logged in";
     $_SESSION['type']='success';
 
-    if ($_SESSION['admin']) {
+    if ($_SESSION['admin']==1) {
         header("location:".BASE_URL."/admin/dashboard.php");
-    } else {
-        header("location:".BASE_URL."/modules/workout/index.php");
     }
+    else {
+        $logged_user = selectOne("workout",['user_id'=>$_SESSION['id']]);
+        $is_workout_set = $logged_user['plan_name'];
+        if($is_workout_set=="no_plan_selected"){
+            header("location:".BASE_URL."/modules/workout/index.php");
+        }
+        else if (!$logged_user)
+        {
+            header("location:".BASE_URL."/modules/workout/index.php");
+        }
+        else if ($is_workout_set!="no_plan_selected") {
+            header("location:".BASE_URL."/modules/workout/workout.php");
+        }
+        
+    } 
+    
     exit();
 
     

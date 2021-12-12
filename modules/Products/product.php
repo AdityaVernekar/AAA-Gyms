@@ -23,10 +23,13 @@ include(ROOT_PATH."/controllers/products.php");
     <?php include(ROOT_PATH ."/components/header.php")?>
     <div class="parent">
         <div class="left-container">
-            <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="" class="proimage">
+            <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="" class="proimage"
+                height="360px" width="280px">
 
-            <a href="" class="cart btn">Add to Cart</a>
-            <a href="" class="buy btn">Buy Now</a>
+
+            <!-- <button type="submit" name="add_to_cart" class="cart btn">Add to cart</button> -->
+            <a href="cart/addtocart.php?id=<?php echo $product['id'];?>" class="cart btn">Add to Cart</a>
+            <!-- <button type="submit" class="buy btn">Buy</button> -->
 
 
         </div>
@@ -81,18 +84,18 @@ include(ROOT_PATH."/controllers/products.php");
 
     date.textContent = date1;
 
-    const cart = document.querySelector(".cart");
-    cart.addEventListener("click", function(e) {
-        e.preventDefault();
-        // alert("Product added to cart");
-        cart.textContent = "Added to Cart";
-        cart.style.backgroundColor = "green";
-        setTimeout(() => {
-            cart.textContent = "Add to Cart";
-            cart.style.backgroundColor = "";
-        }, 5000);
+    // const cart = document.querySelector(".cart");
+    // cart.addEventListener("click", function(e) {
+    //     e.preventDefault();
+    //     // alert("Product added to cart");
+    //     cart.textContent = "Added to Cart";
+    //     cart.style.backgroundColor = "green";
+    //     setTimeout(() => {
+    //         cart.textContent = "Add to Cart";
+    //         cart.style.backgroundColor = "";
+    //     }, 5000);
 
-    });
+    // });
     </script>
     <script src="../../assets/js/script.js"></script>
 </body>

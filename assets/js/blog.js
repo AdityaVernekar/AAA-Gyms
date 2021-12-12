@@ -35,3 +35,6 @@ ClassicEditor.create(document.querySelector("#body"), {
 }).catch((error) => {
   console.log(error);
 });
+setTimeout(function () {
+  $(".msg").fadeOut(1000);
+}, 2000);

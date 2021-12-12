@@ -15,6 +15,7 @@ include(ROOT_PATH."/controllers/products.php");
     <link rel="stylesheet" href="../../assets/css/lightslider.css">
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/lightslider.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 
     <title>AAA-Gyms-Products</title>
 
@@ -25,24 +26,24 @@ include(ROOT_PATH."/controllers/products.php");
     <div class="slideshow-container">
         <div class="mySlides fade">
 
-            <img src="../../assets/images/products/banner.jpg" class="carousel-images">
+            <img src="../../assets/images/products/probg1.jpg" class="carousel-images">
 
         </div>
 
         <div class="mySlides fade">
 
-            <img src="../../assets/images/products/treadmill.jpeg" class="carousel-images">
+            <img src="../../assets/images/products/probg2.jpg" class="carousel-images">
 
         </div>
 
         <div class="mySlides fade">
 
-            <img src="../../assets/images/products/banner3.jpg" class="carousel-images">
+            <img src="../../assets/images/products/progb3.jpg" class="carousel-images">
 
         </div>
     </div>
-    <div class="heading">
-        <h2>Add the Products to your Cart</h2>
+    <div class="headingtop">
+        <h2>Shop Now for Exclusive offer from AAA-Gyms</h2>
 
     </div>
     <!-- Carousel images -->
@@ -93,7 +94,7 @@ include(ROOT_PATH."/controllers/products.php");
 
         </ul>
 
-        <div class="heading">
+        <div class="headingtop">
             Hurry Up! Limited Stock
         </div>
         <ul id="chont" class="cs-hidden">

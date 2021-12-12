@@ -64,9 +64,11 @@ include(ROOT_PATH."/controllers/workout.php");?>
 
             <button type="submit" class="btn" name="submit-workout">Submit</button>
 
+
         </form>
 
     </div>
+
 </body>
 
 </html>
