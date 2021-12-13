@@ -3,7 +3,8 @@
         <h1 class="logo-text"><span>AAA</span>Gyms</h1>
     </div>
     <i class="fas fa-bars bar-logo"></i>
-    <ul class="nav">
+    <ul class="nav" style="    position: relative;
+    right: 34px;">
         <li><a href="<?php echo BASE_URL . '/index.php'?>">Home</a></li>
 
         <li><a href="<?php echo BASE_URL.'/modules/workout/workout.php' ?>">Workout</a></li>

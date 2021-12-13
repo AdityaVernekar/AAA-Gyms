@@ -6,21 +6,37 @@
     
 
     $uid = $_SESSION['id'];
-    $cart = $_SESSION['cart'];
+    
+    $table1= "orders";
     $errors = array();
+    $delivered=false;
     $fname="";
     $lname="";
     $address="";
     $city="";
     $phone="";
-
-
+    $ordersqry = "select * from orders o join users u on u.id=o.user_id";
+    $result = mysqli_query($conn, $ordersqry);
+    $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     
+    if(isset($_GET['orderid'])){
+        $orderitemsqry = "select o.order_id,p.name,o.city,o.payment,o.totalprice,oi.pquantity,o.order_status from orderitems oi join products p on p.id=oi.pid join orders o on o.order_id = oi.order_id where o.order_id=".$_GET['orderid']."";
+    $result = mysqli_query($conn, $orderitemsqry);
+    $orderitems = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+    if(isset($_GET['deliver_id'])){
+        $deliverqry = "update orders set order_status = 'Delivered' where order_id=".$_GET['deliver_id']."";
+        $result = mysqli_query($conn, $deliverqry);
+        $delivered=true;
+        header("location:".BASE_URL."/admin/orders/index.php");
+        exit();
+    }
 
 
 
 
     if(isset($_POST)& !empty($_POST)){
+        $cart = $_SESSION['cart'];
 
         $errors = validateOrders($_POST);
 
@@ -49,10 +65,18 @@
                     
                     
                     $orditmsql = "INSERT INTO orderitems VALUES ('$pid', '$orderid', '$productprice', '$quantity')";
-                    $orditmres = mysqli_query($conn, $orditmsql) or die(mysqli_error($conn));
+                    $orditmres = mysqli_query($conn, $orditmsql) ;
+                    if(!$orditmres){
+                        $_SESSION['message'] = "Order was not  Successfully";
+                        $_SESSION['type'] = "error";
+                         header("location:".BASE_URL."/modules/Products/orders/myaccount.php");
+                    }
+                    else{
+
+                        $stockquery = "update products set stocks = stocks - $quantity where id = $pid";
+                          $stockres = mysqli_query($conn, $stockquery) or die(mysqli_error($conn));
+                    }
                     // decrementing stocks of products
-                   $stockquery = "update products set stocks = stocks - $quantity where id = $pid";
-                     $stockres = mysqli_query($conn, $stockquery) or die(mysqli_error($conn));
                      
                     
                 
@@ -78,7 +102,21 @@
 
         }
         }
+
+
+        if(isset($_GET['del_id'])){
+            $sql1 = "DELETE FROM orderitems WHERE order_id = {$_GET['del_id']}";
+            $sql2 = "DELETE FROM orders where order_id = {$_GET['del_id']}";
+            $res1 = mysqli_query($conn, $sql1);
+            $res2 = mysqli_query($conn, $sql2);
+            $_SESSION['message'] = "Order deleted successfully";
+            $_SESSION['type'] = "success";
+            header("location: " . BASE_URL . "/admin/orders/index.php"); 
+            exit();
+        }
        
+
+        
 
 
 ?>

@@ -17,12 +17,16 @@ $id = $_SESSION['id'];
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../../assets/css/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <title>My Account</title>
 
 </head>
 
 <body>
     <?php include(ROOT_PATH . "/components/header.php"); ?>
+    <?php include(ROOT_PATH ."/components/messages.php");?>
 
     <section id="content" style="height:90vh;">
         <div class="content-blog content-account">
@@ -68,10 +72,13 @@ $id = $_SESSION['id'];
                                         INR <?php echo $ordr['totalprice']; ?>/-
                                     </td>
                                     <td>
+                                        <?php if($ordr['order_status'] == "Delivered" || $ordr['order_status']=="Cancelled"):?>
                                         <a href="view-order.php?id=<?php echo $ordr['order_id']; ?>">View</a>
-                                        <?php if($ordr['order_status'] != 'Cancelled'){?>
+                                        <?php else: ?>
+                                        <a href="view-order.php?id=<?php echo $ordr['order_id']; ?>">View</a>
                                         | <a href="cancel-order.php?id=<?php echo $ordr['order_id']; ?>">Cancel</a>
-                                        <?php } ?>
+                                        <?php endif;?>
+
                                     </td>
                                 </tr>
                                 <?php } ?>

@@ -2,6 +2,8 @@
 include(ROOT_PATH . "/controllers/orders.php");
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +16,9 @@ include(ROOT_PATH . "/controllers/orders.php");
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../assets/css/admin.css">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="../../assets/css/registeration.css"> -->
     <title>AAAGyms: Manage Orders</title>
 </head>
@@ -33,30 +38,39 @@ include(ROOT_PATH . "/controllers/orders.php");
 
             <div class="content">
 
-                <h2 class="page-title">Manage orders</h2>
+                <h2 class="page-title">View Orders</h2>
 
                 <?php include(ROOT_PATH . "/components/messages.php"); ?>
 
                 <table>
                     <thead>
-                        <th>SN</th>
+
                         <th>Order_id</th>
-                        <th>UserName</th>
-                        <th>Order Status</th>
+                        <th>Product</th>
+                        <th>Delivery Address</th>
+                        <th>Payment</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                         <th colspan="3">Action</th>
                     </thead>
                     <tbody>
-                        <?php foreach ($orders as $key => $order): ?>
+                        <?php foreach ($orderitems as $key => $item): ?>
                         <tr>
-                            <td><?php echo $key + 1;  ?></td>
-                            <td><?php echo $order['order_id']; ?></td>
-                            <td><?php echo $order['fname']." ". $order['lname']; ?></td>
-                            <td><?php echo $order['order_status'];?></td>
-                            <?php if ($order['order_status'] == 'Cancelled'): ?>
-                            <td><a href="index.php?del_id=<?php echo $order['order_id'] ?>" class="delete">Remove</a>
-                            </td>
+
+                            <td><?php echo $item['order_id']; ?></td>
+                            <td><?php echo $item['name'] ?></td>
+                            <td><?php echo $item['city'];?></td>
+                            <td><?php echo $item['payment'];?></td>
+                            <td><?php echo $item['totalprice'];?></td>
+                            <td><?php echo $item['pquantity'];?></td>
+
+                            <?php if ($item['order_status'] == 'Order Placed'): ?>
+
+                            <td><a href="<?php echo BASE_URL . '/admin/orders/index.php?deliver_id=' . $item['order_id']; ?>"
+                                    class="edit">Deliver</a></td>
+
                             <?php else: ?>
-                            <td><a href="view.php?orderid=<?php echo $order['order_id']; ?>" class="edit">View</a></td>
+                            <td>Delivered</td>
                             <?php endif; ?>
 
                         </tr>

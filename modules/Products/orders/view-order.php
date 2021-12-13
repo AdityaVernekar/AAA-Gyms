@@ -2,8 +2,17 @@
     ob_start();
     include("../../../path.php");
     include(ROOT_PATH . "/components/database/db.php");
+
     $uid = $_SESSION['id'];
+    
     global $conn;
+    $delivered=false;
+    $delsql = "select order_status from orders where order_id =".$_GET['id']." ";
+    $delresult = mysqli_query($conn, $delsql);
+    $delrow = mysqli_fetch_assoc($delresult);
+    if($delrow['order_status']=="Delivered"){
+        $delivered=true;
+    }
 
  ?>
 
@@ -18,6 +27,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../../assets/css/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <title>View Orders</title>
 </head>
 
@@ -35,6 +47,15 @@
                     <div class="col-md-12">
 
                         <h3>Recent Orders</h3>
+
+                        <?php
+                            if($delivered==true){
+                                echo "<div class='msg success'>Your Order has been deliverd to your gym 
+                                <br>
+                                Please pay at the gym counter to claim your order </div>";
+                            }
+                            ?>
+
                         <br>
                         <table class="cart-table account-table table table-bordered">
                             <thead>
@@ -118,7 +139,9 @@
                                         Order Status
                                     </td>
                                     <td>
-                                        <?php echo $ordr['order_status']; ?>
+                                        <?php echo $ordr['order_status'];
+                                        
+                                        ?>
                                     </td>
                                 </tr>
                                 <tr>
