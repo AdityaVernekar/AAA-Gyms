@@ -22,7 +22,7 @@ h6 {
   margin: 10px;
 }
 a {
-  color: inherit;
+  color: rgb(243, 20, 20);
   text-decoration: none;
   font-family: "Signika Negative", sans-serif;
 }
@@ -195,10 +195,16 @@ header ul li a:hover {
   font-size: 1.3em;
 }
 .footer .footer-content .links ul a {
+  color: white;
   display: block;
   margin: 5px;
+  list-style: none;
   font-size: 1.2em;
   transition: all 0.3s;
+}
+.footer .footer-content .links ul li {
+  list-style: none;
+  color: white;
 }
 .footer .footer-content .links ul a:hover {
   margin-left: 15px;
@@ -206,7 +212,7 @@ header ul li a:hover {
   transition: all 0.3s;
 }
 .footer .footer-content .contact-form {
-  margin: -6px;
+  margin: 0px;
 }
 .footer .footer-content .contact-form .contact-input {
   background: #272727;

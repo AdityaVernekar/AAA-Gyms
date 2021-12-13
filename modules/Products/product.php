@@ -28,8 +28,15 @@ include(ROOT_PATH."/controllers/products.php");
 
 
             <!-- <button type="submit" name="add_to_cart" class="cart btn">Add to cart</button> -->
-            <a href="cart/addtocart.php?id=<?php echo $product['id'];?>" class="cart btn">Add to Cart</a>
-            <!-- <button type="submit" class="buy btn">Buy</button> -->
+            <?php if ($product['stocks']!=0):?>
+            <a href="cart/addtocart.php?id=<?php echo $product['id'];?>" class="cart btn">Buy
+                Now</a>
+            <?php else:?>
+            <a href="#" class="cart btn " style="color:red;">Out of
+                Stock</a>
+            <?php endif;?>
+
+
 
 
         </div>
@@ -39,7 +46,20 @@ include(ROOT_PATH."/controllers/products.php");
                 <span class="price">₹<?php echo $product['price']-$product['discount'];?></span>
                 <p class="discount"><strike>₹<?php echo $product['price'];?></strike></p>
                 <span class="category_display"><?php echo $product['category'];?></span>
+
             </div>
+
+            <?php
+               
+                 if($product['stocks']==0){
+                    echo "<div class='msg error'>Sorry we are out of stock</div>";
+                }
+                else  if($product['stocks']<=3 && $product['stocks']>0){
+                    echo "<div class='msg error'><b>Hurry!!!</b> Only ".$product['stocks']." left in stock</div>";
+                }
+                
+                ?>
+
 
             <div class="offers">
                 <h4 class="heading">Available offers</h4>
@@ -76,6 +96,42 @@ include(ROOT_PATH."/controllers/products.php");
 
         </div>
     </div>
+    <!-- <div class="comment-section-container">
+        <h1>Reviews</h1>
+        <div class="display-comments">
+
+            <?php if(count($comments) == 0): ?>
+            <h3>Be the first one to review this product</h3>
+
+            <?php else: ?>
+            <?php foreach($comments as $comment) : ?>
+            <div class="comment-container">
+                <div class="comment-header">
+                    <img src="../../assets/images/user.png" alt="user">
+                    <h4><?php echo $comment['username']; ?></h4>
+
+                    <p><?php echo date('F j, Y', strtotime($comment['created_at'])); ?></p>
+
+                    <?php if($_SESSION['name']==$comment['username']):?>
+
+                    <a href="single.php?id=<?php echo $_GET['id']; ?>&delid=<?php echo $comment['id']; ?>"><i
+                            class='far fa-trash-alt delbtn'></i></a>
+                    <?php endif;?>
+
+                </div>
+
+                <div class="comment-body">
+
+                    <p><?php echo $comment['body']; ?></p>
+                </div>
+            </div>
+
+            <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+
+
+     </div> -->
 
     <?php include(ROOT_PATH."/components/footer.php");?>
     <script>
@@ -83,19 +139,6 @@ include(ROOT_PATH."/controllers/products.php");
     const date1 = new Date(new Date().getTime() + 5 * 24 * 60 * 60 * 1000).toDateString();
 
     date.textContent = date1;
-
-    // const cart = document.querySelector(".cart");
-    // cart.addEventListener("click", function(e) {
-    //     e.preventDefault();
-    //     // alert("Product added to cart");
-    //     cart.textContent = "Added to Cart";
-    //     cart.style.backgroundColor = "green";
-    //     setTimeout(() => {
-    //         cart.textContent = "Add to Cart";
-    //         cart.style.backgroundColor = "";
-    //     }, 5000);
-
-    // });
     </script>
     <script src="../../assets/js/script.js"></script>
 </body>

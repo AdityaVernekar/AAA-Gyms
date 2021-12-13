@@ -205,6 +205,7 @@ a {
   margin-left: 10px;
 }
 .cart {
+  padding: 13px 80px;
   top: 83%;
   left: 30px;
 }
@@ -281,4 +282,69 @@ a {
   font-size: 14px;
   letter-spacing: 0.5px;
   border-radius: 0px;
+}
+
+/* comments section */
+
+.display-comments {
+  margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-body {
+  display: flex;
+  /* flex-direction: column; */
+  margin: 12px 38px;
+  /* border: 2px solid black; */
+  font-size: 25px;
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+}
+.comment-header img {
+  width: 50px;
+  border-radius: 40px;
+  display: inline;
+  margin-bottom: 0px;
+}
+.comment-header p {
+  padding-top: 8px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+.comment-body > p {
+  display: inline-block;
+  font-size: 25px;
+  margin: 0px 25px;
+  font-size: 22px;
+}
+.comment-header > * {
+  /* display: flex; */
+  display: inline-block;
+}
+.comment-header h4 {
+  font-size: 25px;
+  margin-top: 4px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.comment-footer > p {
+  font-weight: 700;
+  margin-left: 10px;
+}
+.comment-container {
+  background-color: white;
+}
+.comment-section-container {
+  margin: 20px 0px;
+}
+
+.delbtn {
+  position: relative;
+  left: 7px;
+  top: 3px;
+  margin-left: 10px;
+  font-size: 24px;
 }

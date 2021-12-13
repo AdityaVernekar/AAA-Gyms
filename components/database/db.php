@@ -43,6 +43,34 @@ function selectAll($table,$conditions =[]){
     }
 
 }
+function selectLimited($table,$conditions =[],$limit){
+    global $conn;
+    $sql = "select * from $table";
+    if(empty($conditions)){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $record;
+    }
+    else{
+        //return records that match the condition
+        $i=0;
+        foreach ($conditions as $key => $value) {
+            if($i==0){
+                $sql = $sql . " where $key=?";
+            }
+            else{
+                $sql = $sql . " and $key=?";
+            }
+            $i++;
+        }
+        $sql = $sql . " limit $limit";
+        $stmt = executeQuery($sql,$conditions);
+        $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $record;
+    }
+
+}
 function selectOne($table,$conditions){
     global $conn;
     $sql = "select * from $table";

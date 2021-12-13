@@ -93,10 +93,10 @@ $comments = selectAll('comments', ['blog_id' => $post['id']]);
                         </div>
 
                         <?php
-                    if(!isset($_SESSION['id'])){
+                        if(!isset($_SESSION['id'])){
                          echo "<h3>Please login to comment</h3>";
 
-                     }else{
+                        }else{
                         echo "<h1>You can comment here</h1>";
                         echo '<form action="single.php?id='.$post['id'].'" method="post">
                         <input type="hidden" name="blog_id" value='.$post['id'].'>
@@ -105,8 +105,8 @@ $comments = selectAll('comments', ['blog_id' => $post['id']]);
                         <input type="text" name="body" placeholder="Comment here" class="text-input">
                         <input type="submit" name="createComment" class="btn" value="Comment">
                         </form>';
-                    }
-                    ?>
+                        }
+                            ?>
 
 
 
@@ -125,10 +125,10 @@ $comments = selectAll('comments', ['blog_id' => $post['id']]);
 
                 <div class="section popular">
                     <h2 class="section-title">Popular</h2>
-                    <?php foreach ($posts as $post) : ?>
+                    <?php foreach ($popularPosts as $post) : ?>
                     <div class="post clearfix">
                         <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="">
-                        <a href="" class="title">
+                        <a href="single.php?id=<?php echo $post['id'];?>" class="title">
                             <h4><?php echo $post['title'] ?></h4>
                         </a>
                         <?php endforeach; ?>

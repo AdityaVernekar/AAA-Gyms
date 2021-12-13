@@ -50,6 +50,11 @@ $cart = $_SESSION['cart'];
         align-items: center;
         justify-content: center;
     }
+
+    .container {
+
+        height: 80vh;
+    }
     </style>
 
     <title>Select Workout</title>
@@ -59,11 +64,11 @@ $cart = $_SESSION['cart'];
     <?php include(ROOT_PATH."/components/header.php");?>
     <?php include(ROOT_PATH ."/components/messages.php");?>
 
-    <!-- <?php if(!($cart)): ?>
+    <?php if(!($cart)): ?>
     <div class="container">
-        <h1>Cart-Empty</h1>
+        <h1 class="text-center my-5">Oh your cart is empty</h1>
     </div>
-    <?php else: ?> -->
+    <?php else: ?>
 
     <section id="content">
         <div class="content-blog">
@@ -93,13 +98,15 @@ $cart = $_SESSION['cart'];
 						$cartsql = "SELECT * FROM products WHERE id=$key";
 						$cartres = mysqli_query($conn, $cartsql);
 						$cartr = mysqli_fetch_assoc($cartres);
+                        $discountPrice = $cartr['price']-$cartr['discount'];
 
 					
 				 ?>
                                 <tr class="border-bottom">
                                     <td>
                                         <a class="remove" href="delcart.php?id=<?php echo $key; ?>"><i
-                                                class="fa fa-times" style="position:relative;top: 43px;"></i></a>
+                                                class="far fa-trash-alt"
+                                                style="position:relative;top: 43px;color:orangered;"></i></a>
                                     </td>
                                     <td class="ex">
                                         <a href="#"><img
@@ -111,18 +118,19 @@ $cart = $_SESSION['cart'];
                                             href="../product.php?id=<?php echo $cartr['id']; ?>"><?php echo ($cartr['name'])."....."; ?></a>
                                     </td>
                                     <td>
-                                        <span class="amount">INR &nbsp; <?php echo $cartr['price']; ?>.00/-</span>
+                                        <span class="amount">INR &nbsp;
+                                            <?php echo $discountPrice; ?>.00/-</span>
                                     </td>
                                     <td>
                                         <div class="quantity"><?php echo $value['quantity']; ?></div>
                                     </td>
                                     <td>
                                         <span class="amount">INR &nbsp;
-                                            <?php echo ($cartr['price']*$value['quantity']); ?>.00/-</span>
+                                            <?php echo ($discountPrice*$value['quantity']); ?>.00/-</span>
                                     </td>
                                 </tr>
                                 <?php 
-					$total = $total + ($cartr['price']*$value['quantity']);
+					$total = $total + ($discountPrice*$value['quantity']);
 				} ?>
                                 <tr class="border-bottom">
                                     <td colspan="6" class="actions">
@@ -130,7 +138,8 @@ $cart = $_SESSION['cart'];
                                         <div class="col-md-6">
                                             <div class="cart-btn">
                                                 <!-- <button class="button btn-md" type="submit">Update Cart</button> -->
-                                                <a href="checkout.php" class="button btn-md ">Checkout</a>
+                                                <a href="../orders/checkout.php?price=<?php echo $total;?>"
+                                                    class="button btn-md ">Checkout</a>
                                             </div>
                                         </div>
                                     </td>

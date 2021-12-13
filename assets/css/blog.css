@@ -211,6 +211,7 @@ a {
   width: 60px;
   float: left;
   margin-right: 10px;
+  padding-bottom: 10px;
 }
 
 .content .main-content .post .post-preview i {
