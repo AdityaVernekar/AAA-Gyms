@@ -44,7 +44,7 @@ include(ROOT_PATH . "/controllers/posts.php");
                     <thead>
                         <th>SN</th>
                         <th>Title</th>
-                        <!-- <th>Author</th> -->
+                        <th>Author</th>
                         <th colspan="3">Action</th>
                     </thead>
                     <tbody>
@@ -52,7 +52,7 @@ include(ROOT_PATH . "/controllers/posts.php");
                         <tr>
                             <td><?php echo $key + 1;  ?></td>
                             <td><?php echo $post['title']; ?></td>
-                            <!-- <td>Author</td> -->
+                            <td><?php echo $post['author']; ?></td>
                             <!-- <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">edit</a></td> -->
                             <td><a href="index.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
 

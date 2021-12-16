@@ -12,6 +12,9 @@ function validatePost($post)
     if (empty($post['body'])) {
         array_push($errors, 'Body is required');
     }
+    if(empty($post['author'])){
+        array_push($errors, 'Author is required');
+    }
 
     if (empty($post['topic'])) {
         array_push($errors, 'Please select a topic');

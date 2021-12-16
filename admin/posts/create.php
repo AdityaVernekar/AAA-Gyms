@@ -70,6 +70,11 @@ include(ROOT_PATH . "/controllers/posts.php");
                         <input type="text" name="topic" class="text-input">
                     </div>
                     <div>
+                        <label>Author</label>
+                        <input type="text" name="author" class="text-input">
+                    </div>
+
+                    <div>
                         <?php if (empty($published)): ?>
                         <label>
                             <input type="checkbox" name="published">

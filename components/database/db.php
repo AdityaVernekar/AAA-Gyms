@@ -43,6 +43,34 @@ function selectAll($table,$conditions =[]){
     }
 
 }
+function selectLimited($table,$conditions =[],$limit){
+    global $conn;
+    $sql = "select * from $table";
+    if(empty($conditions)){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $record;
+    }
+    else{
+        //return records that match the condition
+        $i=0;
+        foreach ($conditions as $key => $value) {
+            if($i==0){
+                $sql = $sql . " where $key=?";
+            }
+            else{
+                $sql = $sql . " and $key=?";
+            }
+            $i++;
+        }
+        $sql = $sql . " limit $limit";
+        $stmt = executeQuery($sql,$conditions);
+        $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $record;
+    }
+
+}
 function selectOne($table,$conditions){
     global $conn;
     $sql = "select * from $table";
@@ -113,7 +141,7 @@ function delete($table,$id){
 function getPublishedPosts()
 {
     global $conn;
-    $sql = "SELECT p.*, u.name FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=?";
+    $sql = "SELECT p.*, u.name FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=? limit 7";
 
     $stmt = executeQuery($sql, ['published' => 1]);
     $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -121,7 +149,7 @@ function getPublishedPosts()
 }
 function selectTopics(){
     global $conn;
-    $sql="SELECT topic FROM `posts`;";
+    $sql="SELECT distinct topic FROM `posts`;";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $record = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

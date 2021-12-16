@@ -13,8 +13,8 @@ include(ROOT_PATH . "/controllers/products.php");
     <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../assets/css/admin.css">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
     <!-- <link rel="stylesheet" href="../../assets/css/registeration.css"> -->
 </head>
 
@@ -65,6 +65,16 @@ include(ROOT_PATH . "/controllers/products.php");
                     <div>
                         <label>Discount ₹</label>
                         <input type="number" name="discount" class="text-input">
+                    </div>
+                    <div>
+                        <label for="category">Choose a Category:</label>
+
+                        <select name="category" id="category">
+                            <option value="Equipments">Equipments</option>
+                            <option value="Protein and Supplements">Protein and Supplements</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Gym Accessories">Gym Accessories</option>
+                        </select>
                     </div>
                     <div>
                         <button type="submit" name="add-product" class="btn btn-big">Add</button>

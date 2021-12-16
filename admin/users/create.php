@@ -1,5 +1,5 @@
 <?php include("../../path.php");
-// include(ROOT_PATH . "../../controllers/posts.php");
+include(ROOT_PATH . "/controllers/users.php");
 ?>
 
 <!DOCTYPE html>
@@ -57,17 +57,17 @@
                         <input type="password" name="passwordConf" value="" class="text-input">
                     </div>
                     <div>
-                        <!-- <?php if (isset($admin) && $admin == 1): ?> -->
+                        <?php if (isset($admin) && $admin == 1): ?>
                         <label>
                             <input type="checkbox" name="admin" checked>
                             Admin
                         </label>
-                        <!-- <?php else: ?> -->
+                        <?php else: ?>
                         <label>
                             <input type="checkbox" name="admin">
                             Admin
                         </label>
-                        <!-- <?php endif; ?> -->
+                        <?php endif; ?>
 
                     </div>
 

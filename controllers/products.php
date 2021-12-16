@@ -9,8 +9,10 @@ $body="";
 $price=0;
 $stocks = 0;
 $discount=0;
+$category="";
 $errors = array();
 $products = selectAll($table);
+
 
 if (isset($_GET['delete_id'])) {
     // adminOnly();
@@ -19,6 +21,16 @@ if (isset($_GET['delete_id'])) {
     $_SESSION['type'] = "success";
     header("location: " . BASE_URL . "/admin/products/index.php"); 
     exit();
+}
+if(isset($_GET['id'])){
+    $product = selectOne($table, ['id' => $_GET['id']]);
+    $id = $product['id'];
+    $name = $product['name'];
+    $body = $product['body'];
+    $price = $product['price'];
+    $stocks = $product['stocks'];
+    $discount = $product['discount'];
+    $category = $product['category'];
 }
 
 if(isset($_POST['add-product'])){
@@ -53,8 +65,11 @@ if(isset($_POST['add-product'])){
         $price=$_POST['price'];
         $stocks=$_POST['stocks'];
         $discount = $_POST['discount'];
+        $category = $_POST['category'];
     }
 
 }
+
+
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-
+include_once(ROOT_PATH . "/controllers/users.php");
 
 $errors = array();
 $org_otp = "";

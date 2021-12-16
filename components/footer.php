@@ -18,24 +18,22 @@
             <h2>Quick Links</h2>
             <br>
             <ul>
-                <a href="#">
-                    <li>Getting Started</li>
-                </a>
-                <a href="#">
-                    <li>Blogs</li>
-                </a>
-                <a href="#">
-                    <li>Workout</li>
-                </a>
-                <a href="#">
-                    <li>Products</li>
-                </a>
-                <a href="#">
-                    <li>Terms and Conditions</li>
-                </a>
+
+
+                <li><a href="">Blogs</a></li>
+
+
+                <li><a href="">Workout</a></li>
+
+
+                <li><a href="">Products</a></li>
+
+
+                <li><a href="">Terms and Conditions</a></li>
+
             </ul>
         </div>
-        <!-- <div class="footer-section contact-form">
+        <div class="footer-section contact-form">
             <h2>Contact us</h2>
             <br>
             <form action="index.html" method="post">
@@ -44,7 +42,7 @@
                 <button type="submit" class="btn btn-big contact-btn">
                     <i class="fas fa-paper-plane"></i>Submit</button>
             </form>
-        </div> -->
+        </div>
         <div class="footer-bottom">
             &copy; AAA-Gyms Limited|All rights Reserved
         </div>

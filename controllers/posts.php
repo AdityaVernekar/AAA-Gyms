@@ -7,7 +7,7 @@ $table = 'posts';
 
 // $topics = selectAll('topics');
 $posts = selectAll($table);
-
+$popularPosts = selectLimited($table,[],"4");
 
 $errors = array();
 $id = "";
@@ -16,6 +16,7 @@ $body = "";
 $topic = "";
 $published = "";
 $viewcount=0;
+$author="";
 
 if (isset($_GET['id'])) {
     $post = selectOne($table, ['id' => $_GET['id']]);
@@ -24,6 +25,7 @@ if (isset($_GET['id'])) {
     $title = $post['title'];
     $body = $post['body'];
     $topic = $post['topic'];
+    $author = $post['author'];
     $published = $post['published'];
    
     
@@ -75,6 +77,7 @@ if (isset($_POST['add-post'])) {
     if (count($errors) == 0) {
         unset($_POST['add-post']);
         $_POST['user_id'] = $_SESSION['id'];
+
         $_POST['published'] = isset($_POST['published']) ? 1 : 0;
         $_POST['body'] = htmlentities($_POST['body']);
     
@@ -85,6 +88,7 @@ if (isset($_POST['add-post'])) {
         exit();    
     } else {
         $title = $_POST['title'];
+        $author = $_POST['author'];
         $body = $_POST['body'];
         $topic = $_POST['topic'];
         $published = isset($_POST['published']) ? 1 : 0;
@@ -108,5 +112,20 @@ if(isset($_POST['createComment'])){
   
     
     
+}
+
+if(isset($_GET['delid'])){
+    function delCom($id){
+        global $conn;
+        $sql = "DELETE FROM comments WHERE id = $id";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            header("location:".BASE_URL."/modules/Blogs/single.php?id=".$_GET['id']);
+        }
+        
+    
+    }
+    delCom($_GET['delid']);
+
 }
 ?>

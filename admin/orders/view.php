@@ -1,6 +1,8 @@
 <?php include("../../path.php");
-include(ROOT_PATH . "/controllers/products.php");
+include(ROOT_PATH . "/controllers/orders.php");
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +16,11 @@ include(ROOT_PATH . "/controllers/products.php");
     <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../assets/css/admin.css">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="../../assets/css/registeration.css"> -->
-    <title>AAAGyms: Manage Products</title>
+    <title>AAAGyms: Manage Orders</title>
 </head>
 
 <body>
@@ -28,44 +33,45 @@ include(ROOT_PATH . "/controllers/products.php");
 
         <!-- Admin Content -->
         <div class="admin-content">
-            <div class="button-group">
-                <a href="create.php" class="btn btn-big">Add Product</a>
 
-            </div>
 
 
             <div class="content">
 
-                <h2 class="page-title">Manage Products</h2>
+                <h2 class="page-title">View Orders</h2>
 
                 <?php include(ROOT_PATH . "/components/messages.php"); ?>
 
                 <table>
                     <thead>
-                        <th>SN</th>
-                        <th>Name</th>
+
+                        <th>Order_id</th>
+                        <th>Product</th>
+                        <th>Delivery Address</th>
+                        <th>Payment</th>
                         <th>Price</th>
-                        <th>Total Stocks</th>
-                        <th>Discount</th>
-                        <th>Category</th>
-                        <!-- <th>Author</th> -->
+                        <th>Quantity</th>
                         <th colspan="3">Action</th>
                     </thead>
                     <tbody>
-                        <?php foreach ($products as $key => $product): ?>
+                        <?php foreach ($orderitems as $key => $item): ?>
                         <tr>
-                            <td><?php echo $key + 1;  ?></td>
-                            <td><?php echo $product['name']; ?></td>
-                            <td><?php echo $product['price']; ?></td>
-                            <td><?php echo $product['stocks']; ?></td>
-                            <td><?php echo $product['discount']; ?></td>
-                            <td><?php echo $product['category']; ?></td>
-                            <!-- <td>Author</td> -->
-                            <!-- <td><a href="edit.php?id=<?php echo $product['id']; ?>" class="edit">edit</a></td> -->
-                            <td><a href="index.php?delete_id=<?php echo $product['id']; ?>" class="delete">delete</a>
-                            </td>
 
+                            <td><?php echo $item['order_id']; ?></td>
+                            <td><?php echo $item['name'] ?></td>
+                            <td><?php echo $item['city'];?></td>
+                            <td><?php echo $item['payment'];?></td>
+                            <td><?php echo $item['totalprice'];?></td>
+                            <td><?php echo $item['pquantity'];?></td>
 
+                            <?php if ($item['order_status'] == 'Order Placed'): ?>
+
+                            <td><a href="<?php echo BASE_URL . '/admin/orders/index.php?deliver_id=' . $item['order_id']; ?>"
+                                    class="edit">Deliver</a></td>
+
+                            <?php else: ?>
+                            <td>Delivered</td>
+                            <?php endif; ?>
 
                         </tr>
                         <?php endforeach; ?>
