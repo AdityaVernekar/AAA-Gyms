@@ -103,7 +103,7 @@ $comments = selectAll('comments', ['blog_id' => $post['id']]);
                         <input type="hidden" name="user_id" value=' .$_SESSION['id']. '>
                         <input type="hidden" name="username" value='.$_SESSION['name'].'>
                         <input type="text" name="body" placeholder="Comment here" class="text-input">
-                        <input type="submit" name="createComment" class="btn" value="Comment">
+                        <input type="submit" name="createComment" style="margin-top:10px;" class="btn" value="Comment">
                         </form>';
                         }
                             ?>

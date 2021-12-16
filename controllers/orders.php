@@ -15,7 +15,7 @@
     $address="";
     $city="";
     $phone="";
-    $ordersqry = "select * from orders o join users u on u.id=o.user_id";
+    $ordersqry = "select * from orders o join users u on u.id=o.user_id order by o.order_status desc"; 
     $result = mysqli_query($conn, $ordersqry);
     $orders = mysqli_fetch_all($result, MYSQLI_ASSOC);
     

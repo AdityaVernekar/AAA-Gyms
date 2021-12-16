@@ -6,7 +6,7 @@ $posts = array();
 $postsTitle = 'Recent Posts';
 $topics = selectTopics();
 
-$posts = getPublishedPosts();
+$posts = selectAll($table);
 
 ?>
 <!DOCTYPE html>

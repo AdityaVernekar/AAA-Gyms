@@ -23,6 +23,7 @@ $(document).ready(function () {
     },
   });
 });
+
 setTimeout(function () {
   $(".msg").fadeOut(1000);
 }, 2000);

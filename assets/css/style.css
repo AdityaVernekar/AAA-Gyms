@@ -1,5 +1,8 @@
 /* General css */
 
+@import url("https://fonts.googleapis.com/css2?family=Meow+Script&family=Permanent+Marker&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
@@ -235,9 +238,10 @@ a:hover {
 }
 .specialoffer-content a {
   position: relative;
-  top: 26px;
+  top: 30px;
   right: -58px;
 }
+
 .buygym {
   display: flex;
   flex-direction: column;
@@ -247,11 +251,74 @@ a:hover {
 }
 .buygym h2 {
   margin-top: 0px;
-  font-family: "Bungee", cursive;
+  font-family: "Ceviche One", cursive;
   font-size: 2rem;
   color: white;
+  letter-spacing: 9px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .buygym .btn {
   position: relative;
+  top: 30px;
+  right: -58px;
+}
+
+/* //products */
+.prooffer-ui {
+  background: url("../images/bgs/p1.jpg") no-repeat center/cover;
+  height: 400px;
+  padding: 70px;
+  color: white;
+}
+
+.explore {
+  color: white;
+  font-size: 2.5rem;
+  font-family: "Ceviche One", cursive;
+  /* text-decoration: underline; */
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+  transition: all 0.2s ease-in-out;
+}
+.explore:hover {
+  color: orangered;
+  transform: scale(1.1);
+  /* animation: grow 0.5s ease-in-out; */
+  font-size: 3rem;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(100px);
+  }
+  to {
+    transform: scale(300px);
+  }
+}
+.pr h1 {
+  background: #2bcf88;
+  background: -webkit-linear-gradient(#ff4500, rgb(243, 51, 185));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family: "Permanent Marker", cursive;
+  text-align: center;
+  font-size: 74px;
+}
+.pc {
+  margin-top: 0px;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2.5rem;
+  color: white;
+
+  /* text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; */
+  letter-spacing: 9px;
+  /* text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff; */
+}
+
+.buypd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 61px;
 }

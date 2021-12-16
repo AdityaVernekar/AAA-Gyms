@@ -1,4 +1,5 @@
 <?php
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     ob_start();
     include("../../../path.php");
     include(ROOT_PATH . "/components/database/db.php");
@@ -12,6 +13,25 @@
     $delrow = mysqli_fetch_assoc($delresult);
     if($delrow['order_status']=="Delivered"){
         $delivered=true;
+    }
+
+    if(isset($_POST['reviewbtn'])){
+
+        unset($_POST['reviewbtn']);
+       
+        $review = create('reviews', $_POST);
+        if($review){
+            $_SESSION['message'] = "Review Submitted";
+            $_SESSION['type'] = "success";
+            header("location:".BASE_URL."/modules/Products/orders/myaccount.php");
+            exit();
+        }
+        
+         
+        
+      
+        
+        
     }
 
  ?>
@@ -164,6 +184,55 @@
         </div>
         </div>
     </section>
+
+    <?php if ($delivered):?>
+    <div class="review-section-container">
+        <?php
+
+     
+
+            $orditmsql = "SELECT * FROM orderitems o JOIN products p WHERE o.order_id=".$oid." AND o.pid=p.id";
+            $orditmres = mysqli_query($conn, $orditmsql);
+            while($orditmr = mysqli_fetch_assoc($orditmres)){
+
+
+                        $sql = "SELECT * FROM reviews WHERE product_id=".$orditmr['pid']." and user_id =".$_SESSION['id']."";
+                        $res = mysqli_query($conn, $sql);
+                        if(mysqli_num_rows($res)!=0){
+                            echo "
+                            
+                            <div class='container my-4'>
+                            <h2 class='text-center review-thanks'>Thanks for the review<h2>
+                            </div>";
+                        }
+                        else{
+                            echo "<h1>If you liked this product we would like you to rate it</h1>";
+                        echo '<form action="view-order.php?id='.$oid.'" method="post" name="rev-form">
+                        <input type="hidden" name="product_id" value='.$orditmr['pid'].'>
+                        <input type="hidden" name="user_id" value=' .$_SESSION['id']. '>
+                        <input type = "number" name="rating" min="1" max="5" placeholder="1-5" required>
+                        <input type="hidden" name="username" value='.$_SESSION['name'].'>
+                        <input type="text" name="body" placeholder="Comment here" class="text-input">
+                        <input type="submit" name="reviewbtn" class="btn" value="Comment">
+                        </form>';
+                        }
+
+
+
+
+                
+                        
+
+                        }
+                   
+                        
+                        
+                        
+                        
+                            ?>
+    </div>
+    <?php endif; ?>
+
     <?php include(ROOT_PATH . "/components/footer.php"); ?>
 </body>
 

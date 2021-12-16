@@ -32,8 +32,9 @@ if(isset($_POST['otp-btn'])){
     if(count($errors)==0){
         if($otp_in == $_SESSION['otp']){
        
-            $user = selectOne('users',['email'=>$email]);
-            loginUser($user);
+            // $user = selectOne('users',['email'=>$email]);
+            // loginUser($user);
+            header("location:".BASE_URL."/modules/registeration/login.php");
            
         }
         else{

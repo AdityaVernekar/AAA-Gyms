@@ -12,6 +12,8 @@ $discount=0;
 $category="";
 $errors = array();
 $products = selectAll($table);
+$products_equip = selectAll($table , ['category' => 'Equipments']);
+$products_pro = selectAll($table , ['category' => 'Protein and Supplements']);
 
 
 if (isset($_GET['delete_id'])) {

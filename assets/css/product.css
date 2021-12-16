@@ -205,9 +205,9 @@ a {
   margin-left: 10px;
 }
 .cart {
-  padding: 13px 80px;
+  padding: 13px 90px;
   top: 83%;
-  left: 30px;
+  left: 35px;
 }
 .buy {
   top: 83%;
@@ -347,4 +347,25 @@ a {
   top: 3px;
   margin-left: 10px;
   font-size: 24px;
+}
+.review-section-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rev-form {
+  display: flex;
+}
+.rev-form > * {
+  margin: 10px;
+}
+.review-thanks {
+  font-weight: 700;
+}
+
+.sales {
+  background: url("../images/bgs/p2.jpg") no-repeat center/cover;
+  height: 400px;
+  width: 100%;
 }

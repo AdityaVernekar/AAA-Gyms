@@ -81,6 +81,21 @@ include(ROOT_PATH."/components/database/db.php");?>
             </li>
         </ul>
     </div>
+    <div class="product-ui">
+        <div class="prooffer-ui">
+            <div class="special-content pr">
+                <h1>Big Sale!!!</h1>
+                <div class="buypd" style="margin-top:7px;">
+                    <h2 class="pc">Checkout out our exclusive products <h2>
+                            <!-- <h2 class="pc">Dont miss out </h2> -->
+                            <!-- <h4>Start your Fitness Journey Today</h4> -->
+
+                            <a href="<?php echo BASE_URL . "/modules/Products/main.php"; ?>" class="explore">Explore Now
+                                !!</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="ad_register">
         <h2 class="text-center" style="color: white; font-size: 2rem;">Register Now to Join AAA-Gyms</h2>
         <p class="ad_text  text-center ">We provide you the best services,products and training sessions</p>

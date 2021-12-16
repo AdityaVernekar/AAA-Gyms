@@ -7,7 +7,8 @@ $table = 'posts';
 
 // $topics = selectAll('topics');
 $posts = selectAll($table);
-$popularPosts = selectLimited($table,[],"4");
+// dd($posts);
+$popularPosts = selectLimited($table,[],4);
 
 $errors = array();
 $id = "";

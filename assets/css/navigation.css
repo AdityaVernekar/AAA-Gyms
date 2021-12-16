@@ -194,6 +194,9 @@ header ul li a:hover {
   display: inline-block;
   font-size: 1.3em;
 }
+.footer .footer-content .about .socials a:hover {
+  color: white;
+}
 .footer .footer-content .links ul a {
   color: white;
   display: block;

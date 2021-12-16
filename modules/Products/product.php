@@ -2,6 +2,8 @@
 include("../../path.php");
 include(ROOT_PATH."/controllers/products.php");
 
+$reviews = selectAll('reviews',['product_id'=>$_GET['id']]);
+
 ?>
 
 
@@ -24,7 +26,7 @@ include(ROOT_PATH."/controllers/products.php");
     <div class="parent">
         <div class="left-container">
             <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="" class="proimage"
-                height="360px" width="280px">
+                height="400px" width="320px">
 
 
             <!-- <button type="submit" name="add_to_cart" class="cart btn">Add to cart</button> -->
@@ -96,15 +98,15 @@ include(ROOT_PATH."/controllers/products.php");
 
         </div>
     </div>
-    <!-- <div class="comment-section-container">
-        <h1>Reviews</h1>
+    <div class="comment-section-container" style="margin-left: 90px;">
+        <h1 class="text-left">Reviews</h1>
         <div class="display-comments">
 
-            <?php if(count($comments) == 0): ?>
-            <h3>Be the first one to review this product</h3>
+            <?php if(count($reviews) == 0): ?>
+            <h3>No reviews</h3>
 
             <?php else: ?>
-            <?php foreach($comments as $comment) : ?>
+            <?php foreach($reviews as $comment) : ?>
             <div class="comment-container">
                 <div class="comment-header">
                     <img src="../../assets/images/user.png" alt="user">
@@ -123,6 +125,7 @@ include(ROOT_PATH."/controllers/products.php");
                 <div class="comment-body">
 
                     <p><?php echo $comment['body']; ?></p>
+                    <p></p>
                 </div>
             </div>
 
@@ -131,7 +134,7 @@ include(ROOT_PATH."/controllers/products.php");
         </div>
 
 
-     </div> -->
+    </div>
 
     <?php include(ROOT_PATH."/components/footer.php");?>
     <script>
