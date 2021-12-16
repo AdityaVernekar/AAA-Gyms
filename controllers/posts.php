@@ -8,15 +8,16 @@ $table = 'posts';
 // $topics = selectAll('topics');
 $posts = selectAll($table);
 // dd($posts);
-$popularPosts = selectLimited($table,[],4);
-
+$popularPosts = selectLimited($table,["published"=>1],4);
+$topicsel = false;
+$search=false;
 $errors = array();
 $id = "";
 $title = "";
 $body = "";
 $topic = "";
 $published = "";
-$viewcount=0;
+
 $author="";
 
 if (isset($_GET['id'])) {
@@ -32,11 +33,24 @@ if (isset($_GET['id'])) {
     
     
 }
-if(isset($_POST['read-btn'])){
-    dd($_POST);
-    $viewcount+=1;
+if(isset($_GET['topic'])){
+    $selectedTopic = $_GET['topic'];
+    
+    $topicsel=true;
 
-    $updatecount = update($table, $id, ['viewcount' => $viewcount]);
+}
+if(isset($_POST['search-term'])){
+    $searchTerm = $_POST['search-term'];
+    // dd($searchTerm);
+   $search=true;
+
+}
+if(isset($_POST['read-btn'])){
+    // dd($_POST);
+    $one = 1;
+
+    $stockquery = "update posts set viewcount = viewcount + $one where id = ".$_GET['id']."";
+    $stockres = mysqli_query($conn, $stockquery) or die(mysqli_error($conn));
 }
 if (isset($_GET['delete_id'])) {
     // adminOnly();
@@ -128,5 +142,16 @@ if(isset($_GET['delid'])){
     }
     delCom($_GET['delid']);
 
+}
+function searchPosts($term)
+{
+    $match = '%' . $term . '%';
+    global $conn;
+    $sql = "SELECT  p.* FROM posts AS p WHERE p.published=? AND p.title LIKE ? OR p.body LIKE ?";
+
+
+    $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
 }
 ?>

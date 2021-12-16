@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
 * {
   margin: 0px;
   padding: 0px;
@@ -27,7 +28,7 @@ a {
   font-family: "Signika Negative", sans-serif;
 }
 a:hover {
-  color: rgb(0, 0, 0);
+  color: rgb(12, 12, 12);
 }
 .clearfix::after {
   content: "";
@@ -95,10 +96,14 @@ header .logo {
   float: left;
   margin: 6px;
   font-family: "Anton", sans-serif;
+  display: flex;
+  align-items: center;
 }
 header .logo-text {
   margin: 0px;
   color: white;
+  margin-left: 10px;
+  font-family: "Bakbak One", cursive;
 }
 header .logo-text span {
   color: orangered;
@@ -136,7 +141,7 @@ header ul li ul li a:hover {
   background: rgb(162, 161, 160);
 }
 header ul li ul li a.logout {
-  color: red;
+  color: orangered;
 }
 header ul li a {
   display: block;

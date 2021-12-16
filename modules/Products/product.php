@@ -23,10 +23,10 @@ $reviews = selectAll('reviews',['product_id'=>$_GET['id']]);
 <body>
     <!-- // indivisual display product page -->
     <?php include(ROOT_PATH ."/components/header.php")?>
-    <div class="parent">
+    <div class="parent" style="height:100vh;">
         <div class="left-container">
             <img src="<?php echo BASE_URL . '/assets/products/' . $product['image']; ?>" alt="" class="proimage"
-                height="400px" width="320px">
+                height="400px" width="350px" style="object-fit: contain;">
 
 
             <!-- <button type="submit" name="add_to_cart" class="cart btn">Add to cart</button> -->

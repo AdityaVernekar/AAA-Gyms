@@ -139,7 +139,7 @@ $comments = selectAll('comments', ['blog_id' => $post['id']]);
                     <h2 class="section-title">Topics</h2>
                     <ul>
                         <?php foreach($topics as $topic):?>
-                        <li><a href="#"><?php echo $topic['topic']?></a></li>
+                        <li><a href="main.php?topic=<?php echo $topic['topic'];?>"><?php echo $topic['topic']?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

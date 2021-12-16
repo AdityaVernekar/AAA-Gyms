@@ -17,6 +17,7 @@ include(ROOT_PATH."/controllers/products.php");
     <script src="../../assets/js/jquery.js"></script>
     <script src="../../assets/js/lightslider.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
 
     <title>AAA-Gyms-Products</title>
 

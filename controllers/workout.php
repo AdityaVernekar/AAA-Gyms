@@ -9,6 +9,11 @@ $username="";
 $branch="";
 
 
+if(isset($_SESSION['id'])){
+
+    $logged_user = selectOne("workout",['user_id'=>$_SESSION['id']]);
+    $is_workout_set = $logged_user['plan_name'];
+}
 
 
 

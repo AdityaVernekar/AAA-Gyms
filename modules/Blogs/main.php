@@ -6,7 +6,21 @@ $posts = array();
 $postsTitle = 'Recent Posts';
 $topics = selectTopics();
 
-$posts = selectAll($table);
+if($topicsel){
+    $postsTitle = "Search Results for  $selectedTopic.....";
+    $posts = selectAll('posts',['topic'=> $selectedTopic, 'published' => 1]);
+}
+else if ($search){
+    $postsTitle="You Searched for $searchTerm...";
+    $posts = searchPosts($searchTerm);
+}
+else{
+
+    $posts = selectLimited($table,['published' => 1],7);
+
+}
+$carouselPosts = selectAll($table, ['published' => 1]);
+
 
 ?>
 <!DOCTYPE html>
@@ -40,15 +54,18 @@ $posts = selectAll($table);
             <i class="fas fa-chevron-right next"></i>
 
             <div class="post-wrapper">
-                <?php foreach ($posts as $post):?>
+                <?php foreach ($carouselPosts as $post):?>
                 <div class="post">
-                    <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
-                    <div class="post-info">
-                        <h3><a href="single.php"><?php echo $post['title']; ?></a></h3>
-                        <i class="far fa-user"> <?php echo $post['author']; ?></i>
-                        &nbsp;
-                        <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
-                    </div>
+                    <a href="single.php?id=<?php echo $post['id'];?>">
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt=""
+                            class="slider-image">
+                        <div class="post-info">
+                            <h3><a href="single.php?id=<?php echo $post['id'];?>"><?php echo $post['title']; ?></a></h3>
+                            <i class="far fa-user"> <?php echo $post['author']; ?></i>
+                            &nbsp;
+                            <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
+                        </div>
+                    </a>
                 </div>
                 <?php endforeach; ?>
 
@@ -63,13 +80,13 @@ $posts = selectAll($table);
 
             <!-- Main Content -->
             <div class="main-content">
-                <h1 class="recent-post-title">Recent Posts</h1>
+                <h1 class="recent-post-title"><?php echo $postsTitle;?></h1>
                 <?php foreach ($posts as $post): ?>
                 <div class="post clearfix">
                     <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
                     <div class="post-preview">
                         <h2><?php echo $post['title']; ?></h2>
-                        <i class="far fa-user"> <?php echo $post['author']; ?></i>
+                        <i class="far fa-user" style=""> &nbsp; <?php echo $post['author']; ?></i>
                         &nbsp;
                         <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
                         <p class="preview-text">
@@ -89,7 +106,7 @@ $posts = selectAll($table);
 
                 <div class="section search">
                     <h2 class="section-title">Search</h2>
-                    <form action="index.html" method="post">
+                    <form action="main.php" method="post">
                         <input type="text" name="search-term" class="text-input" placeholder="Search...">
                     </form>
                 </div>
@@ -99,7 +116,7 @@ $posts = selectAll($table);
                     <h2 class="section-title">Topics</h2>
                     <ul>
                         <?php foreach($topics as $topic):?>
-                        <li><a href="#"><?php echo $topic['topic']?></a></li>
+                        <li><a href="main.php?topic=<?php echo $topic['topic'];?>"><?php echo $topic['topic']?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

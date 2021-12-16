@@ -57,16 +57,19 @@
     <?php include(ROOT_PATH . "/components/header.php"); ?>
 
     <!-- SHOP CONTENT -->
-    <section id="content">
+    <section id="content" style="height:70vh;">
         <div class="content-blog content-account">
             <div class="container">
                 <div class="row">
                     <div class="page_header text-center">
-                        <h2>My Account</h2>
+
                     </div>
                     <div class="col-md-12">
 
-                        <h3>Recent Orders</h3>
+                        <h3 style="font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    margin: 20px 0px;"> Orders Details</h3>
 
                         <?php
                             if($delivered==true){

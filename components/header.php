@@ -1,5 +1,7 @@
 <header>
     <div class="logo">
+        <img src="<?php echo BASE_URL . "/assets/images/wallpaper/logo.png";?>" alt=""
+            style="width:50px; height: 50px;">
         <h1 class="logo-text"><span>AAA</span>Gyms</h1>
     </div>
     <i class="fas fa-bars bar-logo"></i>

@@ -10,6 +10,7 @@ include(ROOT_PATH."/controllers/workout.php");?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../assets/css/workout.css">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <title>Select Workout</title>
 </head>
 

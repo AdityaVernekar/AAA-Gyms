@@ -10,6 +10,7 @@ include(ROOT_PATH."/controllers/workout.php");?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../assets/css/workout.css">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <title>Select Workout</title>
 </head>
 
@@ -32,10 +33,10 @@ include(ROOT_PATH."/controllers/workout.php");?>
                 <label for="plan_name">Select a plan</label>
                 <select name="plan_name" id="paln">
                     <option value="Strength Training">Strength Training</option>
-                    <option value="BODYBUILDING">BODYBUILDING</option>
-                    <option value="Calisthenics">Calisthenics</option>
+                    <option value="bodybuilding">Body Building</option>
+                    <option value="Fat Loss">Fat Loss </option>
                     <option value="Weight Gain ">Weight Gain </option>
-                    <option value="Gymnastics">Gymnastics</option>
+                    <option value="Lean Bulk">Lean Bulk</option>
                     <option value="Body Toning">Body Toning</option>
 
                 </select>

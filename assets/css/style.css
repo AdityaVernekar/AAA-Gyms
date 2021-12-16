@@ -2,6 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Meow+Script&family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
 
 * {
   margin: 0px;
@@ -32,7 +33,7 @@ a {
   font-family: "Signika Negative", sans-serif;
 }
 a:hover {
-  color: rgb(2, 56, 100);
+  color: rgb(251, 253, 255);
 }
 .clearfix::after {
   content: "";
@@ -205,6 +206,7 @@ a:hover {
   color: #ffffff;
   text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
   font-weight: bold;
+  font-family: "Bakbak One", cursive;
 }
 .ad_text span {
   color: orangered;

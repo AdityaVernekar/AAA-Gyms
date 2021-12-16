@@ -40,9 +40,28 @@ function loginUser($user){
         {
             header("location:".BASE_URL."/modules/workout/index.php");
         }
-        else if ($is_workout_set!="no_plan_selected") {
-            header("location:".BASE_URL."/modules/workout/workout.php");
+        else if($is_workout_set == "Strength Training"){
+            header("location:".BASE_URL."/modules/workout/strength.php");
         }
+        else if($is_workout_set == "bodybuilding"){
+            header("location:".BASE_URL."/modules/workout/bodybuilding.php");
+        }
+        else if($is_workout_set == "Fat Loss"){
+            header("location:".BASE_URL."/modules/workout/Fatloss.php");
+        }
+        else if($is_workout_set == "Weight Gain"){
+            header("location:".BASE_URL."/modules/workout/Weight_gain.php");
+        }
+        else if($is_workout_set == "Lean Bulk"){
+            header("location:".BASE_URL."/modules/workout/Weight_gain.php");
+        }
+        else{
+
+            header("location:".BASE_URL."/modules/workout/Fatloss.php");
+        }
+        
+        
+        
         
     } 
     

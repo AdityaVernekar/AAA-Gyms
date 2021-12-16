@@ -215,14 +215,16 @@ a {
 }
 
 .content .main-content .post .post-preview i {
+  margin: 4px 0px;
   color: #757575;
-  font-size: 0.8em;
+  font-size: 16px;
 }
 
 .content .main-content .post .preview-text {
   line-height: 1.5em;
   font-size: 1.03em;
   color: #444;
+  margin-top: 20px;
 }
 
 .content .main-content .post .read-more {

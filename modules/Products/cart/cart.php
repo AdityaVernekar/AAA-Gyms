@@ -15,6 +15,7 @@ $cart = $_SESSION['cart'];
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../assets/css/navigation.css">
     <link rel="stylesheet" href="../../../assets/css/product.css">
+    <script src="https://kit.fontawesome.com/f8756ec070.js" crossorigin="anonymous"></script>
     <!-- JavaScript Bundle with Popper -->
     <style>
     .cart-table thead {

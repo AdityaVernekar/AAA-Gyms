@@ -35,7 +35,10 @@ $id = $_SESSION['id'];
 
                     <div class="col-md-12">
 
-                        <h3>Recent Orders</h3>
+                        <h3 style="font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    margin: 29px 0px;">Recent Orders</h3>
                         <br>
                         <table class="cart-table account-table table table-bordered">
                             <thead>
@@ -53,6 +56,12 @@ $id = $_SESSION['id'];
                                 <?php
 					            $ordsql = "SELECT * FROM orders WHERE `user_id` = '$id'";
 					             $ordres = mysqli_query($conn, $ordsql);
+
+                                 if(mysqli_num_rows($ordres)==0){
+                                     echo "<tr><td colspan='6' class='text-center'><h4>No orders found</h4></td></tr>
+                                     ";
+                                     echo "<tr><td colspan='6' class='text-center'><h4>Checkout our products in products section</h4></td></tr>";
+                                 }
 					            while($ordr = mysqli_fetch_assoc($ordres)){
 				                ?>
                                 <tr>

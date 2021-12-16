@@ -188,8 +188,10 @@ a {
 
 /* Single Product Page */
 .parent {
+  position: relative;
   display: flex;
   height: 100vh;
+  right: 168px;
 }
 .left-container {
   margin: 20px 30px;
@@ -206,8 +208,8 @@ a {
 }
 .cart {
   padding: 13px 90px;
-  top: 83%;
-  left: 35px;
+  top: 78%;
+  left: 60px;
 }
 .buy {
   top: 83%;

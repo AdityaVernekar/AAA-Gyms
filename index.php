@@ -27,19 +27,19 @@ include(ROOT_PATH."/components/database/db.php");?>
     <div class="slideshow-container">
         <div class="mySlides fade">
 
-            <img src="assets/images/bg1.jpg" style="width: 100%;height: 80vh;">
+            <img src="assets/images/wallpaper/banner2.png" style="width: 100%;height: 75vh;">
 
         </div>
 
         <div class="mySlides fade">
 
-            <img src="assets/images/bg3.jpg" style="width: 100%;height: 80vh;">
+            <img src="assets/images/wallpaper/banner1.png" style="width: 100%;height: 75vh;">
 
         </div>
 
         <div class="mySlides fade">
 
-            <img src="assets/images/gym3.jpg" style="width: 100%;height: 80vh;">
+            <img src="assets/images/wallpaper/banner3.png" style="width: 100%;height: 75vh;">
 
         </div>
     </div>
@@ -52,10 +52,12 @@ include(ROOT_PATH."/components/database/db.php");?>
                 <div class="buygym">
                     <h2>BUY AN AAA'S GYM <h2>
                             <h2>MEMBERSHIP TODAY </h2>
-                            <h4>Start your Fitness Journey Today</h4>
+                            <h4 style="font-family: 'Bakbak One', cursive;
+                            font-size: 20px;">Start your Fitness Journey Today</h4>
 
                 </div>
-                <a href="#" class="btn">Buy now</a>
+                <a href="<?php echo BASE_URL . "/modules/registeration/register.php"; ?>" class="btn"
+                    style="top:0px;">Buy now</a>
             </div>
         </div>
     </div>
@@ -102,7 +104,7 @@ include(ROOT_PATH."/components/database/db.php");?>
         <p class="ad_text  text-center ">Hurry!!Grab a seat <span>NOW!!</span></p>
         <h4 class="text-center" style="color: white;">Click below to register</h4>
         <i class="fas fa-arrow-down"></i>
-        <a href="register.php" class="add">Register</a>
+        <a href="<?php echo BASE_URL . "/modules/registeration/register.php"; ?>" class="add">Register</a>
     </div>
     <!-- /branding -->
     <!-- Footer -->
